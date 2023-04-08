@@ -12,13 +12,15 @@
     margin: 0;
   }
 
-  &__link {
+  &__btn {
     font-family: 'Gilroy';
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     color: #828282;
     cursor: pointer;
+    background: none;
+    border: 0;
 
     &:hover {
       color: #070707;

@@ -320,3 +320,83 @@
     height: 50px;
   }
 }
+
+.signIn {
+  display: none;
+  gap: 10px;
+  position: absolute;
+  top: 225px;
+  left: 38%;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    height: 318px;
+    border: 2.5px solid #070707;
+    padding-left: 40px;
+    padding-top: 40px;
+    z-index: 1;
+  }
+
+  &__label {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #070707;
+    margin-bottom: 6px;
+  }
+
+  &__input {
+    width: 290px;
+    height: 50px;
+    border: 2.5px solid #E5E5E5;
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    border: 2.5px solid #070707;
+    border-radius: 30px;
+    padding: 10px 19px;
+    width: 93px;
+
+    &:hover {
+      color: #FFFFFF;
+      border: 0;
+      padding: 12.5px 21.5px;
+      background: #070707;
+    }
+  }
+
+  &__close {
+    width: 25px;
+    height: 25px;
+    background-image: url(/img/icon/Close.svg);
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(246, 246, 246, 0.99);
+  }
+}
+
+.open {
+  display: flex;
+}
