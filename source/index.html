@@ -6,7 +6,7 @@
     <meta name="google" content="notranslate">
     <meta name="format-detection" content="telephone=no">
 
-    <title>DL Academy</title>
+    <title>Portfolio</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -22,6 +22,96 @@
     <!-- endbuild -->
   </head>
   <body>
-    <script src="./js/lec3.js" defer></script>
+    @@include('blocks/header.html')
+    <main class="main">
+      <section class="developer container">
+        <h1 class="developer__title">Yulia Rafailevna</h1>
+        <p class="developer__subtitle">Future front-end developer 24 years old, Tolyatti</p>
+        <picture>
+          <img class="developer__img" src="" alt="Фото в пути..." width="1000px" height = "465px">
+        </picture>
+        <div class="developer__slider">
+          <button class="developer__btn--left"></button>
+          <span class="developer__span"></span>
+          <span class="developer__span"></span>
+          <span class="developer__span"></span>
+          <span class="developer__span"></span>
+          <button class="developer__btn--right"></button>
+        </div>
+      </section>
+      <section class="aboutMe">
+        <h1 class="aboutMe__title">About me</h1>
+        <div class="aboutMe__wrapper--one">
+          <p class="aboutMe__text">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit consequat. Vel ac elit vel sagittis.</p>
+        </div>
+        <div class="aboutMe__wrapper--two">
+          <p class="aboutMe__text">Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum nisl, sed pulvinar. Commodo elit sed a fermentum non justo. Etiam platea consectetur.</p>
+        </div>
+        <div class="aboutMe__wrapper--three">
+          <p class="aboutMe__text">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus nec vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</p>
+        </div>
+      </section>
+      <section class="skills container">
+        <h1 class="skills__title">Skills</h1>
+        <p class="skills__subtitle">I work in such programs as</p>
+        <div class="skills__programs">
+          <div class="skills__program">
+            <img class="skills__img" src="./img/html.png" alt="html" width="79px" height="90px">
+            <p class="skills__text">HTML 5</p>
+            <div class="skills__wrapper">
+              <label class="skills__label" for="html">90%</label>
+              <progress class="skills__progress" id="html" max="100" value="90"></progress>
+            </div>
+          </div>
+          <div class="skills__program">
+            <img class="skills__img" src="./img/css.png" alt="css" width="79px" height="90px">
+            <p class="skills__text">CSS/SCSS</p>
+            <div class="skills__wrapper">
+              <label class="skills__label" for="css">90%</label>
+              <progress class="skills__progress" id="css" max="100" value="90"></progress>
+            </div>
+          </div>
+          <div class="skills__program">
+            <img class="skills__img" src="./img/js.png" alt="js" width="68px" height="90px">
+            <p class="skills__text">JavaScript</p>
+            <div class="skills__wrapper">
+              <label class="skills__label" for="js">35%</label>
+              <progress class="skills__progress" id="js" max="100" value="35"></progress>
+            </div>
+          </div>
+          <div class="skills__program">
+            <img class="skills__img" src="./img/git.png" alt="git" width="90px" height="90px">
+            <p class="skills__text">Git/GitHub</p>
+            <div class="skills__wrapper">
+              <label class="skills__label" for="git">80%</label>
+              <progress class="skills__progress" id="git" max="100" value="80"></progress>
+            </div>
+          </div>
+          <div class="skills__program">
+            <img class="skills__img" src="./img/figma.png" alt="figma" width="60px" height="90px">
+            <p class="skills__text">Figma</p>
+            <div class="skills__wrapper">
+              <label class="skills__label" for="css">90%</label>
+              <progress class="skills__progress" id="css" max="100" value="90"></progress>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="portfolio">
+        <h1 class="portfolio__title">Portfolio</h1>
+        <div class="portfolio__wrapper container">
+          <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+          <div class="portfolio__btn">
+            <button class="portfolio__btn--left"></button>
+            <button class="portfolio__btn--right"></button>
+          </div>
+          <div class="portfolio__fon">
+            <p class="portfolio__site">Learning site for DL Academy courses</p>
+            <p class="portfolio__desc">A simple multi-page static site. The design layout was in Figma. HTML and CSS were used. The site is responsive and cross-browser, but without adding interactivity via JavaScript.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    @@include('blocks/footer.html')
   </body>
 </html>

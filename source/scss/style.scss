@@ -11,12 +11,14 @@
 */
 @import "_utils";
 @import "_base";
+@import "fonts";
 
 /*
   Import all other blocks
 */
 @import "_blocks/container";
 @import "_blocks/footer";
+@import "_blocks/header";
 
 /*
   Ниже пример подключения других блоков
@@ -35,26 +37,286 @@
   то он должен был бы быть в файле _blocks/coming-soon.scss
 */
 
-.coming-soon {
-  color: $color-text;
+.developer {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  min-height: calc(100vh - 100px);
-  margin: auto;
-  padding: 0 5vw;
+  flex-wrap: wrap;
+  align-items: end;
 
   &__title {
+    margin-right: 40px;
+    margin-bottom: 36px;
+    width: 235px;
+  }
+
+  &__subtitle {
+    width: 210px;
+    margin-bottom: 44px;
+  }
+
+  &__img {
+    margin-bottom: 30px;
+  }
+
+  &__slider {
+    width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 25vw;
-    font-weight: 400;
-    margin: 0 auto;
-    text-transform: uppercase;
-    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  &__btn--left {
+    width: 42px;
+    height: 42px;
+    background: none;
+    background-image: url(/img/icon/arrow_left.svg);
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__btn--right {
+    width: 42px;
+    height: 42px;
+    background: none;
+    background-image: url(/img/icon/arrow_right.svg);
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__span {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.aboutMe {
+  background: #F6F6F6;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #070707;
+  }
+
+  &__wrapper--one {
+    background-image: url(/img/icon/frame1.svg);
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    height: 140px;
+    width: 483px;
+    margin-right: 100px;
+  }
+
+  &__wrapper--two {
+    background-image: url(/img/icon/frame2.svg);
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    height: 119px;
+    width: 483px;
+    margin-left: 100px;
+  }
+
+  &__wrapper--three {
+    background-image: url(/img/icon/frame3.svg);
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    height: 119px;
+    width: 483px;
+    margin-right: 100px;
+  }
+
+  &__text {
+      min-width: 448px;
+      padding: 15px;
+      margin: 0;
+      font-family: 'Gilroy';
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      color: #070707;
+      text-align: start;
+  }
+}
+
+.skills {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__title {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #070707;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070707;
+    margin-bottom: 50px;
+  }
+
+  &__programs {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+  }
+
+  &__program {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__text {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__label {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+  }
+
+  &__progress {
+    border: 0;
+    width: 142px;
+    height: 9px;
+
+    &::-webkit-progress-bar {
+      background-color: #E5E5E5;
+    }
+    &::-webkit-progress-value {
+      background-color: #070707;
+    }
+  }
+}
+
+.portfolio {
+  background: #F6F6F6;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+
+  &__title {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #070707;
+    margin: 0;
+    margin-bottom: 50px;
+  }
+
+  &__wrapper {
+    height: 604px;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    margin-right: 30px;
+    margin-left: 30px;
+    top: -341px;
+
+    &--left {
+      border: 0;
+      padding: 0;
+      width: 50px;
+      height: 60px;
+      background: none;
+      background-image: url(/img/icon/Arrow_left2.svg);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    &--right {
+      border: 0;
+      padding: 0;
+      width: 50px;
+      height: 60px;
+      background: none;
+      background-image: url(/img/icon/Arrow_right2.svg);
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__fon {
+    background: rgba(7, 7, 7, 0.85);
+    padding-top: 31px;
+    padding-bottom: 31px;
+    position: relative;
+    top: -210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__site {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    border-bottom: 1px dashed #FFFFFF;
+    height: 22px;
+  }
+
+  &__desc {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+    width: 400px;
+    height: 50px;
   }
 }

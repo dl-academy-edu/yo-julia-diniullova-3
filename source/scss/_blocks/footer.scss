@@ -1,10 +1,86 @@
-/*
-  Код ниже нужно удалить, он добавлен просто для примера
-*/
 .footer {
-  background-color: #151515;
-  color: #fff;
-  padding: 40px 0;
   text-align: center;
-  height: 100px;
+  padding-top: 60px;
+  padding-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #070707;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070707;
+    margin-bottom: 30px;
+    width: 269px;
+  }
+
+  &__btn {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    padding: 10px 29px;
+    border: 0;
+    background: #070707;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+    &:hover {
+      color: #070707;
+      border: 2.5px solid #070707;
+      padding: 7.5px 26.5px;
+      background: #FFFFFF;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    width: 335px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &__link {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    padding: 10px 19px;
+    border: 2.5px solid #070707;
+    border-radius: 30px;
+
+    &:hover {
+      color: #FFFFFF;
+      border: 0;
+      padding: 12.5px 21.5px;
+      background: #070707;
+    }
+  }
+
+  &__text {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #828282;
+    margin-bottom: 5px;
+  }
 }
