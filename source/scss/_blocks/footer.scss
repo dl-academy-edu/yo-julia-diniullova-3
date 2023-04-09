@@ -63,15 +63,15 @@
     font-size: 18px;
     line-height: 22px;
     color: #070707;
-    padding: 10px 19px;
+    padding: 7.5px 16.5px;
     border: 2.5px solid #070707;
     border-radius: 30px;
-    height: 47px;
+    height: 42px;
 
     &:hover {
       color: #FFFFFF;
       border: 0;
-      padding: 12.5px 21.5px;
+      padding: 10px 19px;
       background: #070707;
     }
   }
@@ -83,5 +83,9 @@
     line-height: 16px;
     color: #828282;
     margin-bottom: 5px;
+
+    &--dashed {
+      border-bottom: 1px dashed #828282;
+    }
   }
 }

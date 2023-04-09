@@ -43,6 +43,12 @@
   align-items: end;
 
   &__title {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 47px;
+    line-height: 57px;
+    color: #070707;
+    margin: 0;
     margin-right: 40px;
     margin-bottom: 36px;
     width: 235px;
@@ -112,13 +118,15 @@
     font-weight: 700;
     font-size: 34px;
     line-height: 41px;
+    margin: 0;
+    margin-bottom: 51px;
     color: #070707;
   }
 
   &__wrapper--one {
     background-image: url(/img/icon/frame1.svg);
     background-repeat: no-repeat;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     height: 140px;
     width: 483px;
     margin-right: 100px;
@@ -127,7 +135,7 @@
   &__wrapper--two {
     background-image: url(/img/icon/frame2.svg);
     background-repeat: no-repeat;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     height: 119px;
     width: 483px;
     margin-left: 100px;
@@ -136,7 +144,6 @@
   &__wrapper--three {
     background-image: url(/img/icon/frame3.svg);
     background-repeat: no-repeat;
-    margin-bottom: 20px;
     height: 119px;
     width: 483px;
     margin-right: 100px;
@@ -255,9 +262,9 @@
     flex-direction: row;
     justify-content: space-between;
     position: relative;
-    margin-right: 30px;
-    margin-left: 30px;
-    top: -341px;
+    margin-right: 15px;
+    margin-left: 20px;
+    top: -334px;
 
     &--left {
       border: 0;
