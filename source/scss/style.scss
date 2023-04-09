@@ -380,13 +380,35 @@
       background: #070707;
     }
   }
+
+  &__close {
+    width: 25px;
+    height: 25px;
+    background-image: url(/img/icon/Close.svg);
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(246, 246, 246, 0.99);
+  }
 }
 
 .register {
   display: none;
   gap: 10px;
   position: absolute;
-  top: 225px;
+  top: 118px;
   left: 28%;
 
   &__wrapper {
@@ -462,13 +484,35 @@
       background: #070707;
     }
   }
+
+  &__close {
+    width: 25px;
+    height: 25px;
+    background-image: url(/img/icon/Close.svg);
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(246, 246, 246, 0.99);
+  }
 }
 
 .send {
   display: none;
   gap: 10px;
   position: absolute;
-  top: 225px;
+  top: 2555px;
   left: 28%;
 
   &__wrapper {
@@ -519,6 +563,7 @@
   &__textarea {
     height: 150px;
     border: 2.5px solid #E5E5E5;
+    resize: none;
   }
 
   &__checkbox {
@@ -546,29 +591,28 @@
       background: #070707;
     }
   }
-}
 
+  &__close {
+    width: 25px;
+    height: 25px;
+    background-image: url(/img/icon/Close.svg);
+    cursor: pointer;
+    z-index: 1;
 
-.close {
-  width: 25px;
-  height: 25px;
-  background-image: url(/img/icon/Close.svg);
-  cursor: pointer;
-  z-index: 1;
-
-  &:hover {
-    opacity: 0.5;
+    &:hover {
+      opacity: 0.5;
+    }
   }
-}
 
-.overlay {
-  position: fixed;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(246, 246, 246, 0.99);
+  &__overlay {
+    position: fixed;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(246, 246, 246, 0.99);
+  }
 }
 
 .open {
