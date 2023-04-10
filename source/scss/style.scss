@@ -333,7 +333,7 @@
   gap: 10px;
   position: absolute;
   top: 225px;
-  left: 38%;
+  left: 37.8%;
 
   &__wrapper {
     display: flex;
@@ -341,8 +341,7 @@
     width: 370px;
     height: 318px;
     border: 2.5px solid #070707;
-    padding-left: 40px;
-    padding-top: 40px;
+    padding: 37.5px;
     z-index: 1;
   }
 
@@ -370,13 +369,14 @@
     color: #070707;
     border: 2.5px solid #070707;
     border-radius: 30px;
-    padding: 10px 19px;
-    width: 93px;
+    padding: 7.5px 16.5px;
+    width: 88px;
+    margin-top: 10px;
 
     &:hover {
       color: #FFFFFF;
       border: 0;
-      padding: 12.5px 21.5px;
+      padding: 10px 19px;
       background: #070707;
     }
   }
@@ -409,7 +409,7 @@
   gap: 10px;
   position: absolute;
   top: 118px;
-  left: 28%;
+  left: 27.5%;
 
   &__wrapper {
     display: flex;
@@ -417,7 +417,7 @@
     width: 680px;
     height: 533px;
     border: 2.5px solid #070707;
-    padding: 40px;
+    padding: 37.5px;
     z-index: 1;
 
     &--inputs {
@@ -460,8 +460,8 @@
   }
 
   &__checkbox {
-    width: 17px;
-    height: 17px;
+    width: 19px;
+    height: 19px;
     border: 2px solid #E5E5E5;
     border-radius: 3px;
   }
@@ -475,7 +475,7 @@
     border: 2.5px solid #070707;
     border-radius: 30px;
     padding: 7.5px 16.5px;
-    width: 106px;
+    width: 101px;
 
     &:hover {
       color: #FFFFFF;
@@ -521,7 +521,7 @@
     width: 680px;
     height: 540px;
     border: 2.5px solid #070707;
-    padding: 40px;
+    padding: 37.5px;
     z-index: 1;
 
     &--inputs {
@@ -558,6 +558,7 @@
     height: 50px;
     border: 2.5px solid #E5E5E5;
     margin-bottom: 20px;
+    margin-top: 6px;
   }
 
   &__textarea {
@@ -567,8 +568,8 @@
   }
 
   &__checkbox {
-    width: 17px;
-    height: 17px;
+    width: 19px;
+    height: 19px;
     border: 2px solid #E5E5E5;
     border-radius: 3px;
   }
@@ -615,6 +616,31 @@
   }
 }
 
+.label__star--red {
+  color: #EB3617;
+}
+
 .open {
   display: flex;
+}
+
+.buttonToTop{
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  background: none;
+  border: 0;
+  background-image: url(/img/icon/arrow_left.svg);
+  transform: rotate(90deg);
+  cursor: pointer;
+  height: 42px;
+  width: 42px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &__scroll--hidden {
+    display: none;
+  }
 }
