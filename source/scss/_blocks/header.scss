@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 33px;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #828282;
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
+
+  &__btn {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #828282;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: 0;
+
+    &:hover {
+      color: #070707;
+    }
+
+    &--fatty {
+      font-family: 'Gilroy';
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      margin-left: 5px;
+      background: none;
+      border: 0;
+      color: #070707;
+      cursor: pointer;
+
+      &:hover {
+        color: #828282;
+      }
+    }
+  }
+}
