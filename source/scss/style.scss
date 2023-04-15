@@ -332,7 +332,7 @@
 .signIn {
   display: none;
   gap: 10px;
-  position: absolute;
+  position: fixed;
   top: 225px;
   left: 37.8%;
 
@@ -340,7 +340,7 @@
     display: flex;
     flex-direction: column;
     width: 370px;
-    height: 318px;
+    height: 100%;
     border: 2.5px solid #070707;
     padding: 37.5px;
     z-index: 1;
@@ -408,7 +408,7 @@
 .register {
   display: none;
   gap: 10px;
-  position: absolute;
+  position: fixed;
   top: 118px;
   left: 27.5%;
 
@@ -416,7 +416,7 @@
     display: flex;
     flex-direction: column;
     width: 680px;
-    height: 533px;
+    height: 100%;
     border: 2.5px solid #070707;
     padding: 37.5px;
     z-index: 1;
@@ -463,7 +463,7 @@
   &__checkbox {
     width: 19px;
     height: 19px;
-    border: 2px solid #E5E5E5;
+    border: 2px solid #E5E5E5;;
     border-radius: 3px;
   }
 
@@ -512,8 +512,8 @@
 .send {
   display: none;
   gap: 10px;
-  position: absolute;
-  top: 2555px;
+  position: fixed;
+  top: 118px;
   left: 28%;
   z-index: 5;
 
@@ -645,4 +645,26 @@
   &__scroll--hidden {
     display: none;
   }
+}
+
+.is-invalid {
+  border: 2.5px solid #EB3617;
+}
+
+.invalid-feedback {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+  color: #EB3617;
+}
+
+.input__margin {
+  margin-bottom: 10px;
+}
+
+.checkbox__disabled {
+  color: #E5E5E5;
 }
