@@ -12,6 +12,7 @@
 @import "_utils";
 @import "_base";
 @import "fonts";
+@import "blog";
 
 /*
   Import all other blocks
@@ -514,6 +515,7 @@
   position: absolute;
   top: 2555px;
   left: 28%;
+  z-index: 5;
 
   &__wrapper {
     display: flex;
