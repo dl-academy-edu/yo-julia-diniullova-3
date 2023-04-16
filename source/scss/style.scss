@@ -344,6 +344,7 @@
     border: 2.5px solid #070707;
     padding: 37.5px;
     z-index: 1;
+    background: #FFFFFF;
   }
 
   &__label {
@@ -373,6 +374,8 @@
     padding: 7.5px 16.5px;
     width: 88px;
     margin-top: 10px;
+    background: none;
+    cursor: pointer;
 
     &:hover {
       color: #FFFFFF;
@@ -420,6 +423,7 @@
     border: 2.5px solid #070707;
     padding: 37.5px;
     z-index: 1;
+    background: #FFFFFF;
 
     &--inputs {
       display: flex;
@@ -465,6 +469,7 @@
     height: 19px;
     border: 2px solid #E5E5E5;;
     border-radius: 3px;
+    cursor: pointer;
   }
 
   &__btn {
@@ -472,17 +477,17 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
-    color: #070707;
-    border: 2.5px solid #070707;
+    color: #E5E5E5;
+    border: 2.5px solid #E5E5E5;
     border-radius: 30px;
     padding: 7.5px 16.5px;
     width: 101px;
+    background: none;
+    cursor: pointer;
 
     &:hover {
-      color: #FFFFFF;
-      border: 0;
-      padding: 10px 19px;
-      background: #070707;
+      color: #828282;
+      border: 2.5px solid #828282;
     }
   }
 
@@ -521,10 +526,11 @@
     display: flex;
     flex-direction: column;
     width: 680px;
-    height: 540px;
+    height: 100%;
     border: 2.5px solid #070707;
     padding: 37.5px;
     z-index: 1;
+    background: #FFFFFF;
 
     &--inputs {
       display: flex;
@@ -574,6 +580,7 @@
     height: 19px;
     border: 2px solid #E5E5E5;
     border-radius: 3px;
+    cursor: pointer;
   }
 
   &__btn {
@@ -581,17 +588,17 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
-    color: #070707;
-    border: 2.5px solid #070707;
+    color: #E5E5E5;
+    border: 2.5px solid #E5E5E5;
     border-radius: 30px;
     padding: 7.5px 16.5px;
     width: 81px;
+    background: none;
+    cursor: pointer;
 
     &:hover {
-      color: #FFFFFF;
-      border: 0;
-      padding: 10px 19px;
-      background: #070707;
+      color: #828282;
+      border: 2.5px solid #828282;
     }
   }
 
@@ -651,6 +658,10 @@
   border: 2.5px solid #EB3617;
 }
 
+.is-valid {
+  border: 2.5px solid #03BC3C;
+}
+
 .invalid-feedback {
   font-family: 'Gilroy';
   font-style: normal;
@@ -661,10 +672,51 @@
   color: #EB3617;
 }
 
+.valid-feedback {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+  color: #03BC3C;
+}
+
 .input__margin {
   margin-bottom: 10px;
 }
 
-.checkbox__disabled {
+.label__disabled {
   color: #E5E5E5;
 }
+
+.register__checkbox:hover ~ .label__disabled {
+  color: #828282;
+}
+
+.register__checkbox:checked ~ .label__disabled {
+  color: #070707;
+}
+
+.send__checkbox:hover ~ .label__disabled {
+  color: #828282;
+}
+
+.send__checkbox:checked ~ .label__disabled {
+  color: #070707;
+}
+
+.btn--active {
+  color: #070707;
+  border: 2.5px solid #070707;
+}
+
+.btn--hover {
+  color: #828282;
+  border: 2.5px solid #828282;
+}
+
+
+
+
+
