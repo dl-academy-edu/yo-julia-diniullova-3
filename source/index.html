@@ -27,8 +27,24 @@
       <section class="developer container">
         <h1 class="developer__title">Yulia Rafailevna</h1>
         <p class="developer__subtitle">Future front-end developer 24 years old, Tolyatti</p>
+        <button class="burger__btn"></button>
+        <ul class="burger undotted">
+          <button class="burger__btn--close"></button>
+          <li class="burger__item">
+            <a href="index.html" class="burger__link burger__item--active">Home</a>
+          </li>
+          <li class="burger__item">
+            <a href="blog.html" class="burger__link">My blog</a>
+          </li>
+          <li class="burger__item">
+            <button class="burger__item--btn" data-modal="signIn">Sign in</button>
+          </li>
+          <li class="burger__item">
+            <button class="burger__item--btn" data-modal="register">Register</button>
+          </li>
+        </ul>
         <picture>
-          <img class="developer__img" src="" alt="Фото в пути..." width="1000px" height = "465px">
+          <img class="developer__img" src="" alt="Фото в пути...">
         </picture>
         <div class="developer__slider">
           <button class="developer__btn--left"></button>
@@ -100,7 +116,11 @@
       <section class="portfolio">
         <h1 class="portfolio__title">Portfolio</h1>
         <div class="portfolio__wrapper container">
-          <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+          <picture>
+            <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+            <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+            <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+          </picture>
           <div class="portfolio__btn">
             <button class="portfolio__btn--left"></button>
             <button class="portfolio__btn--right"></button>
@@ -198,12 +218,13 @@
           <input type="checkbox" id="checkbox" class="send__checkbox">
           <label name="checkbox" for="checkbox" class="send__label label__disabled">Clicking on the button, you consent to the processing of your personal data.</label>
         </div>
-        <button type="submit" class="send__btn">Send</button>
+        <button type="submit" class="send__btn" disabled="disabled">Send</button>
       </div>
       <div class="send__close" data-close="send"></div>
     </form>
     <button class="buttonToTop buttonToTop__scroll--hidden"></button>
     <script src="js/form.js"></script>
     <script src="js/form_button.js"></script>
+    <script src="js/burger.js"></script>
   </body>
 </html>

@@ -6,6 +6,10 @@
   padding-bottom: 32px;
   border-bottom: 1px solid #828282;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   &__list {
     display: flex;
     gap: 20px;

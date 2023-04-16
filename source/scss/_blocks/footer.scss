@@ -6,6 +6,11 @@
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 35px;
+  }
+
   &__title {
     font-family: 'Gilroy';
     font-weight: 700;
@@ -14,6 +19,10 @@
     color: #070707;
     margin: 0;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 10px;
+    }
   }
 
   &__subtitle {
@@ -24,6 +33,10 @@
     color: #070707;
     margin-bottom: 30px;
     width: 269px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__btn {
@@ -55,6 +68,10 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      width: 200px;
+    }
   }
 
   &__link {
