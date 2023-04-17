@@ -43,16 +43,28 @@
             <button class="burger__item--btn" data-modal="register">Register</button>
           </li>
         </ul>
-        <picture>
-          <img class="developer__img" src="" alt="Фото в пути...">
-        </picture>
-        <div class="developer__slider">
-          <button class="developer__btn--left"></button>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <button class="developer__btn--right"></button>
+        <div class="slider">
+          <div class="slider__wrapper">
+            <div class="slider__inner-wrapper">
+              <div class="slider__slide">
+                <img src="./img/images.jpg" alt="">
+              </div>
+              <div class="slider__slide">
+                <img src="./img/portfolio.png" alt="">
+              </div>
+              <div class="slider__slide">
+                <img src="./img/images.jpg" alt="">
+              </div>
+              <div class="slider__slide">
+                <img src="./img/portfolio.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="slider__bottom-panel">
+            <button class="slider__btn slider__btn--left"></button>
+            <div class="slider__pagination"></div>
+            <button class="slider__btn slider__btn--right"></button>
+          </div>
         </div>
       </section>
       <section class="aboutMe">
@@ -133,7 +145,7 @@
       </section>
     </main>
     @@include('blocks/footer.html')
-    <form name="signIn" id="signIn" class="signIn modal">
+    <form name="signIn" id="signIn" class="signIn modal" novalidate>
       <div class="signIn__overlay" data-close="signIn"></div>
       <div class="signIn__wrapper">
         <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
@@ -144,7 +156,7 @@
       </div>
       <div class="signIn__close" data-close="signIn"></div>
     </form>
-    <form name="register" id="register" class="register modal">
+    <form name="register" id="register" class="register modal" novalidate>
       <div class="register__overlay" data-close="register"></div>
       <div class="register__wrapper">
         <label for="email" class="register__label">Email<span class="label__star--red"> *</span></label>
@@ -187,7 +199,7 @@
       </div>
       <div class="register__close" data-close="register"></div>
     </form>
-    <form id="send" class="send modal">
+    <form id="send" class="send modal" novalidate>
       <div class="send__overlay" data-close="send"></div>
       <div class="send__wrapper">
         <div class="send__wrapper--inputs">
@@ -226,5 +238,6 @@
     <script src="js/form.js"></script>
     <script src="js/form_button.js"></script>
     <script src="js/burger.js"></script>
+    <script src="js/slider.js"></script>
   </body>
 </html>

@@ -43,7 +43,7 @@
     }
     else {
       button.classList.remove('btn--active');
-      button.setAttribute('disabled');
+      button.setAttribute('disabled', 'disabled');
     }
 })
 })();

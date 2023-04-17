@@ -157,44 +157,6 @@
     margin-bottom: 30px;
   }
 
-  &__slider {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 60px;
-
-    @media (max-width: 768px) {
-      margin-bottom: 40px;
-    }
-  }
-
-  &__btn--left {
-    width: 42px;
-    height: 42px;
-    background: none;
-    background-image: url(/img/icon/arrow_left.svg);
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-
-  &__btn--right {
-    width: 42px;
-    height: 42px;
-    background: none;
-    background-image: url(/img/icon/arrow_right.svg);
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-
   &__span {
     width: 10px;
     height: 10px;
@@ -677,6 +639,11 @@
     background: none;
     cursor: pointer;
 
+    &:disabled {
+      color: #E5E5E5;
+      border: 2.5px solid #E5E5E5;
+    }
+
     &:hover {
       color: #828282;
       border: 2.5px solid #828282;
@@ -787,6 +754,11 @@
     width: 81px;
     background: none;
     cursor: pointer;
+
+    &:disabled {
+      color: #E5E5E5;
+      border: 2.5px solid #E5E5E5;
+    }
 
     &:hover {
       color: #828282;
@@ -907,6 +879,97 @@
   color: #828282;
   border: 2.5px solid #828282;
 }
+
+.slider {
+  max-width: 1000px;
+
+  &__wrapper {
+    overflow: hidden;
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    height: 100%;
+    transition: transform;
+  }
+
+  &__slide {
+    display: flex;
+    flex-shrink: 0;
+    height: 465px;
+  }
+
+  &__bottom-panel {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__btn--left {
+    width: 42px;
+    height: 42px;
+    background: none;
+    background-image: url(/img/icon/arrow_left.svg);
+    border: 0;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__btn--right {
+    width: 42px;
+    height: 42px;
+    background: none;
+    background-image: url(/img/icon/arrow_right.svg);
+    border: 0;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.4s;
+
+    &:not(:last-child) {
+      margin-right: 7px;
+    }
+
+    &--active {
+      background-color: #070707;
+    }
+
+    &:not(.slider__dot--active):hover,
+    &:not(.slider__dot--active):focus {
+      background-color: #828282;
+    }
+  }
+}
+
 
 
 
