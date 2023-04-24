@@ -61,10 +61,10 @@
     let errors = {};
 
     if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
-    if (userEmail.value.length === 0) errors.email = 'This field is required';
+    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
 
     if (userPassword.value.length < 2) errors.password = 'Too short password';
-    if (userPassword.value.length === 0) errors.password = 'This field is required';
+    if (!userPassword.getAttribute('required')) errors.password = 'This field is required';
 
     if (Object.keys(errors).length) {
       Object.keys(errors).forEach(key => {
@@ -105,31 +105,31 @@
     let errors = {};
     let good = {};
 
-    if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")'
-    else if (userEmail.value.length === 0) errors.email = 'This field is required'
+    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
+    else if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
     else good.email = 'All right';
 
-    if (userName.value.length < 2) errors.name = 'Name too short';
-    else if (userName.value.length === 0) errors.name = 'This field is required';
+    if (!userName.getAttribute('required')) errors.name = 'This field is required';
+    else if (userName.value.length < 2) errors.name = 'Name too short';
     else good.name = 'All right';
 
-    if (userSurname.value.length < 2) errors.surname = 'Surname too short';
-    else if (userSurname.value.length === 0) errors.surname = 'This field is required';
+    if (!userSurname.getAttribute('required')) errors.surname = 'This field is required';
+    else if (userSurname.value.length < 2) errors.surname = 'Surname too short';
     else good.surname = 'All right';
 
-    if (userPassword.value.length < 2) errors.password = 'Too short password';
-    else if (userPassword.value.length === 0) errors.password = 'This field is required';
+    if (!userPassword.getAttribute('required')) errors.password = 'This field is required';
+    else if (userPassword.value.length < 2) errors.password = 'Too short password';
     else good.password = 'All right';
 
-    if (userRepeatPassword.value.length !== userPassword) errors.repeatPassword = 'Password mismatch';
-    else if (userRepeatPassword.value.length === 0) errors.repeatPassword = 'This field is required';
+    if (!userRepeatPassword.getAttribute('required')) errors.repeatPassword = 'This field is required';
+    else if (userRepeatPassword.value.length !== userPassword) errors.repeatPassword = 'Password mismatch';
     else good.repeatPassword = 'All right';
 
-    if (userLocation.value.length < 2) errors.location = 'Too short location';
-    else if (userLocation.value.length === 0) errors.location = 'This field is required';
+    if (!userLocation.getAttribute('required')) errors.location = 'This field is required';
+    else if (userLocation.value.length < 2) errors.location = 'Too short location';
     else good.location = 'All right';
 
-    if (userAge.value.length === 0) errors.age = 'This field is required'
+    if (!userAge.getAttribute('required')) errors.age = 'This field is required'
     else good.age = 'All right';
 
     if (Object.keys(errors).length) {
@@ -176,20 +176,20 @@
     let errors = {};
     let good = {};
 
-    if (userName.value.length < 2) errors.name = 'Name too short';
-    else if (userName.value.length === 0) errors.name = 'This field is required';
+    if (!userName.getAttribute('required')) errors.name = 'This field is required';
+    else if (userName.value.length < 2) errors.name = 'Name too short';
     else good.name = 'All right';
 
-    if (userMessageSubject.value.length < 2) errors.message = 'Message subject too short';
-    else if (userMessageSubject.value.length === 0) errors.message = 'This field is required';
+    if (!userMessageSubject.getAttribute('required')) errors.message = 'This field is required';
+    else if (userMessageSubject.value.length < 2) errors.message = 'Message subject too short';
     else good.message = 'All right';
 
-    if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
-    else if (userEmail.value.length === 0) errors.email = 'This field is required';
+    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
+    else if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
     else good.email = 'All right';
 
-    if (!isPhoneCorrect(userPhone.value)) errors.phone = 'Please enter a valid phone';
-    else if (userPhone.value.length === 0) errors.phone = 'This field is required';
+    if (!userPhone.getAttribute('required')) errors.phone = 'This field is required';
+    else if (!isPhoneCorrect(userPhone.value)) errors.phone = 'Please enter a valid phone';
     else good.phone = 'All right';
 
     if (Object.keys(errors).length) {
@@ -265,125 +265,3 @@ function isPhoneCorrect(phone) {
   return phone.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 }
 
-
-// (function() {
-//   const form = document.forms.signIn;
-//   const buttonOpen = document.querySelector('.header__signIn');
-//   const buttonClose = form.querySelector('.signIn__close');
-//   const overlay = form.querySelector('.signIn__overlay');
-
-//   if (!form) return;
-
-//   buttonOpen.addEventListener("click", () => {
-//     form.classList.add('open');
-//   });
-
-//   buttonClose.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   overlay.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   window.addEventListener('keydown', (e) => {
-//     if(e.keyCode === 27) modalClose();
-//   });
-
-//   function modalClose () {
-//     form.classList.remove('open');
-//   };
-
-// })();
-
-// (function() {
-//   const form = document.forms.register;
-//   const buttonOpen = document.querySelector('.header__register');
-//   const buttonClose = form.querySelector('.register__close');
-//   const overlay = form.querySelector('.register__overlay');
-
-//   if (!form) return;
-
-//   buttonOpen.addEventListener("click", () => {
-//     form.classList.add('open');
-//   });
-
-//   buttonClose.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   overlay.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   window.addEventListener('keydown', (e) => {
-//     if(e.keyCode === 27) modalClose();
-//   });
-
-//   function modalClose () {
-//     form.classList.remove('open');
-//   };
-
-// })();
-
-// (function() {
-//   const form = document.forms.send;
-//   const buttonOpen = document.querySelector('.footer__btn');
-//   const buttonClose = form.querySelector('.send__close');
-//   const overlay = form.querySelector('.send__overlay');
-
-//   if (!form) return;
-
-//   buttonOpen.addEventListener("click", () => {
-//     form.classList.add('open');
-//   });
-
-//   buttonClose.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   overlay.addEventListener("click", () => {
-//     modalClose();
-//   });
-
-//   window.addEventListener('keydown', (e) => {
-//     if(e.keyCode === 27) modalClose();
-//   });
-
-//   function modalClose () {
-//     form.classList.remove('open');
-//   };
-
-// })();
-
-(function() {
-  const buttonTop = document.querySelector('.buttonToTop');
-
-  if (!buttonTop) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY >= 1500) {
-      visuallyBtn();
-    }
-    else {
-      notVisuallyBtn();
-    }
-
-    buttonTop.addEventListener('click', scrollToTop);
-  });
-
-  function visuallyBtn() {
-    buttonTop.classList.remove('buttonToTop__scroll--hidden');
-  };
-
-  function notVisuallyBtn() {
-    buttonTop.classList.add('buttonToTop__scroll--hidden');
-  };
-
-  function scrollToTop() {
-    window.scrollTo ({
-      top: 0,
-      behavior: 'smooth',
-    })
-  };
-})();

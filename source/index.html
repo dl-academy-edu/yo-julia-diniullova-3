@@ -145,50 +145,52 @@
       </section>
     </main>
     @@include('blocks/footer.html')
+
     <form name="signIn" id="signIn" class="signIn modal" novalidate>
       <div class="signIn__overlay" data-close="signIn"></div>
       <div class="signIn__wrapper">
         <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
-        <input name="email" type="email" id="email" class="signIn__input">
+        <input name="email" type="email" id="email" class="signIn__input" required>
         <label for="password" class="signIn__label">Password<span class="label__star--red"> *</span></label>
-        <input name="password" type="password" id="password" class="signIn__input">
+        <input name="password" type="password" id="password" class="signIn__input" required>
         <button type="submit" class="signIn__btn">Log in</button>
       </div>
       <div class="signIn__close" data-close="signIn"></div>
     </form>
+
     <form name="register" id="register" class="register modal" novalidate>
       <div class="register__overlay" data-close="register"></div>
       <div class="register__wrapper">
         <label for="email" class="register__label">Email<span class="label__star--red"> *</span></label>
-        <input name="email" type="email" id="email" class="register__input register__input--width">
+        <input name="email" type="email" id="email" class="register__input register__input--width" required>
         <div class="register__wrapper--inputs">
           <div class="register__wrapper--input">
             <label for="name" class="register__label">Name<span class="label__star--red"> *</span></label>
-            <input name="name" type="text" id="name" class="register__input">
+            <input name="name" type="text" id="name" class="register__input" required>
           </div>
           <div class="register__wrapper--input">
             <label for="surname" class="register__label">Surname<span class="label__star--red"> *</span></label>
-            <input name="surname" type="text" id="surname" class="register__input">
+            <input name="surname" type="text" id="surname" class="register__input" required>
           </div>
         </div>
         <div class="register__wrapper--inputs">
           <div class="register__wrapper--input">
             <label for="password" class="register__label">Password<span class="label__star--red"> *</span></label>
-            <input name="password" type="password" id="password" class="register__input">
+            <input name="password" type="password" id="password" class="register__input" required>
           </div>
           <div class="register__wrapper--input">
             <label for="repeatPassword" class="register__label">Repeat password<span class="label__star--red"> *</span></label>
-            <input name="repeatPassword" type="password" id="repeatPassword" class="register__input">
+            <input name="repeatPassword" type="password" id="repeatPassword" class="register__input" required>
           </div>
         </div>
         <div class="register__wrapper--inputs">
           <div class="register__wrapper--input">
             <label for="location" class="register__label">Location<span class="label__star--red"> *</span></label>
-            <input name="location" type="text" id="location" class="register__input">
+            <input name="location" type="text" id="location" class="register__input" required>
           </div>
           <div class="register__wrapper--input">
             <label for="number" class="register__label">Age<span class="label__star--red"> *</span></label>
-            <input name="age" type="number" id="number" class="register__input">
+            <input name="age" type="number" id="number" class="register__input" required>
           </div>
         </div>
         <div class="register__wrapper--checkbox">
@@ -199,27 +201,28 @@
       </div>
       <div class="register__close" data-close="register"></div>
     </form>
+
     <form id="send" class="send modal" novalidate>
       <div class="send__overlay" data-close="send"></div>
       <div class="send__wrapper">
         <div class="send__wrapper--inputs">
           <div class="send__wrapper--input">
             <label for="name" class="send__label">What is your name?<span class="label__star--red"> *</span></label>
-            <input name="name" type="text" id="name" class="send__input">
+            <input name="name" type="text" id="name" class="send__input" required>
           </div>
           <div class="send__wrapper--input">
             <label for="message" class="send__label">Message subject<span class="label__star--red"> *</span></label>
-            <input name="message" type="text" id="message" class="send__input">
+            <input name="message" type="text" id="message" class="send__input" required>
           </div>
         </div>
         <div class="send__wrapper--inputs">
           <div class="send__wrapper--input">
             <label for="email" class="send__label">Your Email<span class="label__star--red"> *</span></label>
-            <input name="email" type="email" id="email" class="send__input">
+            <input name="email" type="email" id="email" class="send__input" required>
           </div>
           <div class="send__wrapper--input">
             <label for="phone" class="send__label">Your mobile phone<span class="label__star--red"> *</span></label>
-            <input name="phone" type="number" id="phone" class="send__input">
+            <input name="phone" type="number" id="phone" class="send__input" required>
           </div>
         </div>
         <div class="send__wrapper--area">
@@ -234,10 +237,13 @@
       </div>
       <div class="send__close" data-close="send"></div>
     </form>
+
     <button class="buttonToTop buttonToTop__scroll--hidden"></button>
+
     <script src="js/form.js"></script>
     <script src="js/form_button.js"></script>
     <script src="js/burger.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/buttonToTop.js"></script>
   </body>
 </html>
