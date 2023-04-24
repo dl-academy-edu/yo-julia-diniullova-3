@@ -14,12 +14,13 @@
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/\bno-js\b/, '') + ' js';
     </script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <!-- Favicon -->
 
     <!-- build:css -->
     <link href="css/style.min.css" rel="stylesheet">
     <!-- endbuild -->
+
   </head>
   <body>
     @@include('blocks/header.html')
@@ -128,14 +129,32 @@
       <section class="portfolio">
         <h1 class="portfolio__title">Portfolio</h1>
         <div class="portfolio__wrapper container">
-          <picture>
-            <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
-            <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
-            <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
-          </picture>
-          <div class="portfolio__btn">
-            <button class="portfolio__btn--left"></button>
-            <button class="portfolio__btn--right"></button>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
           <div class="portfolio__fon">
             <p class="portfolio__site">Learning site for DL Academy courses</p>
@@ -245,5 +264,7 @@
     <script src="js/burger.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/buttonToTop.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
   </body>
 </html>

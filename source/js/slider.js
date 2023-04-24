@@ -44,7 +44,7 @@
       innerWrapper.style.transition = 'transform ${animationDuration}ms';
       timer = setTimeout(() => {
         innerWrapper.style.transition = '';
-      }, animationDuration)
+      }, animationDuration);
     }
 
     if (index === 0) {

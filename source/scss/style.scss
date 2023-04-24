@@ -393,53 +393,16 @@
     height: 604px;
   }
 
-  &__btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    margin-right: 15px;
-    margin-left: 20px;
-    top: -334px;
-
-    &--left {
-      border: 0;
-      padding: 0;
-      width: 50px;
-      height: 60px;
-      background: none;
-      background-image: url(/img/icon/Arrow_left2.svg);
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-
-    &--right {
-      border: 0;
-      padding: 0;
-      width: 50px;
-      height: 60px;
-      background: none;
-      background-image: url(/img/icon/Arrow_right2.svg);
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
   &__fon {
     background: rgba(7, 7, 7, 0.85);
     padding-top: 31px;
     padding-bottom: 31px;
     position: relative;
-    top: -210px;
+    top: -150px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 5;
 
     @media (max-width: 768px) {
       height: 181px;
@@ -970,6 +933,24 @@
   }
 }
 
+.swiper {
+  width: 1000px;
+  height: 604px;
+
+  &-button-prev,
+  &-button-next {
+    height: 42px;
+    width: 25px;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+    color: #070707;
+    top: 280px;
+    margin: 30px;
+
+    &:hover {
+      color: #828282;
+    }
+  }
+}
 
 
 
