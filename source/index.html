@@ -28,22 +28,9 @@
       <section class="developer container">
         <h1 class="developer__title">Yulia Rafailevna</h1>
         <p class="developer__subtitle">Future front-end developer 24 years old, Tolyatti</p>
-        <button class="burger__btn"></button>
-        <ul class="burger undotted">
-          <button class="burger__btn--close"></button>
-          <li class="burger__item">
-            <a href="index.html" class="burger__link burger__item--active">Home</a>
-          </li>
-          <li class="burger__item">
-            <a href="blog.html" class="burger__link">My blog</a>
-          </li>
-          <li class="burger__item">
-            <button class="burger__item--btn" data-modal="signIn">Sign in</button>
-          </li>
-          <li class="burger__item">
-            <button class="burger__item--btn" data-modal="register">Register</button>
-          </li>
-        </ul>
+        @@include('blocks/burger.html', {
+          "margin": "burger__btn"
+        })
         <div class="slider">
           <div class="slider__wrapper">
             <div class="slider__inner-wrapper">

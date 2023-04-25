@@ -22,10 +22,25 @@
     <!-- endbuild -->
   </head>
   <body>
-    @@include('blocks/header.html')
+    <header class="header container">
+      <a href="index.html" class="header__btn--fatty">Home</a>
+      <nav class="header__nav">
+        <ul class="header__list undotted">
+          <li class="header__item">
+            <a href="blog.html" class="header__btn">My blog</a>
+          </li>
+          <li class="header__item">
+            <button class="header__btn header__profile">My profile</button>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
       <section class="blog container">
         <h1 class="blog__title">My blog</h1>
+        @@include('blocks/burger.html', {
+          "margin": "burger__btn--blog"
+        })
         <form class="filter">
           <div class="filter__wrapper">
             <fieldset class="filter__fieldset">
@@ -133,5 +148,7 @@
       <div class="send__close"></div>
     </form>
     <script src="js/form.js"></script>
+    <script src="js/form_button.js"></script>
+    <script src="js/burger.js"></script>
   </body>
 </html>
