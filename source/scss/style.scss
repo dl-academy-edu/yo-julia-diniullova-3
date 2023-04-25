@@ -406,7 +406,7 @@
 
     @media (max-width: 768px) {
       height: 181px;
-      top: -240px;
+      top: -181px;
       padding-top: 20px;
       padding-bottom: 20px;
     }
@@ -771,6 +771,7 @@
   cursor: pointer;
   height: 42px;
   width: 42px;
+  z-index: 10;
 
   &:hover {
     opacity: 0.5;
@@ -846,6 +847,14 @@
 .slider {
   max-width: 1000px;
 
+  @media (max-width: 1399px) {
+    width: 648px;
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+
   &__wrapper {
     overflow: hidden;
   }
@@ -865,13 +874,17 @@
   &__bottom-panel {
     margin-top: 30px;
     margin-bottom: 60px;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
+    @media (max-width: 1399px) {
+      width: 648px;
+    }
+
     @media (max-width: 768px) {
       margin-bottom: 40px;
+      width: 280px;
     }
   }
 
@@ -937,14 +950,25 @@
   width: 1000px;
   height: 604px;
 
+  @media (max-width: 1399px) {
+    width: 648px;
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+
   &-button-prev,
   &-button-next {
     height: 42px;
     width: 25px;
-    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
     color: #070707;
     top: 280px;
     margin: 30px;
+
+    @media (max-width: 768px) {
+      margin: 15px;
+    }
 
     &:hover {
       color: #828282;
