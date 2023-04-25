@@ -26,6 +26,74 @@
     <main class="main">
       <section class="blog container">
         <h1 class="blog__title">My blog</h1>
+        <form class="filter">
+          <div class="filter__wrapper">
+            <fieldset class="filter__fieldset">
+              <legend for="tags">Tags</legend>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Views</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="radio__views" type="radio" id="500">
+                <label class="filter__label" for="500">100-500</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="radio__views" type="radio" id="1000" checked>
+                <label class="filter__label" for="1000">500-1000</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="radio__views" type="radio" id="2000">
+                <label class="filter__label" for="2000">1000-2000</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Comments</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="0" checked>
+                <label class="filter__label" for="0">0</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="1">
+                <label class="filter__label" for="1">0-1</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="50">
+                <label class="filter__label" for="50">1-50</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">How show?</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="radio__show" type="radio" id="5" checked>
+                <label class="filter__label" for="5">show 5</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="radio__show" type="radio" id="10">
+                <label class="filter__label" for="10">show 10</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Sort by</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="date" checked>
+                <label class="filter__label" for="date">date</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="title">
+                <label class="filter__label" for="title">title</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" id="views">
+                <label class="filter__label" for="views">views</label>
+              </div>
+            </fieldset>
+            <button class="filter__btn filter__btn--margin">Reset</button>
+          </div>
+          <div class="filter__wrapper">
+            <input type="text" class="filter__input--search">
+            <button class="filter__btn">Search</button>
+          </div>
+        </form>
       </section>
     </main>
     @@include('blocks/footer.html')
