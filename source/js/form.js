@@ -61,10 +61,10 @@
     let errors = {};
 
     if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
-    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
+    if (userEmail.hasAttribute('required')) if (userEmail.value.length === 0) errors.email = 'This field is required';
 
     if (userPassword.value.length < 2) errors.password = 'Too short password';
-    if (!userPassword.getAttribute('required')) errors.password = 'This field is required';
+    if (userPassword.hasAttribute('required')) if (userPassword.value.length === 0) errors.password = 'This field is required';
 
     if (Object.keys(errors).length) {
       Object.keys(errors).forEach(key => {
@@ -105,31 +105,32 @@
     let errors = {};
     let good = {};
 
-    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
+    if (userEmail.hasAttribute('required')) if (userEmail.value.length === 0) errors.email = 'This field is required';
     else if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
     else good.email = 'All right';
 
-    if (!userName.getAttribute('required')) errors.name = 'This field is required';
+    if (userName.hasAttribute('required')) if (userName.value.length === 0) errors.name = 'This field is required';
     else if (userName.value.length < 2) errors.name = 'Name too short';
     else good.name = 'All right';
 
-    if (!userSurname.getAttribute('required')) errors.surname = 'This field is required';
+    if (userSurname.hasAttribute('required')) if (userSurname.value.length === 0) errors.surname = 'This field is required';
     else if (userSurname.value.length < 2) errors.surname = 'Surname too short';
     else good.surname = 'All right';
 
-    if (!userPassword.getAttribute('required')) errors.password = 'This field is required';
+    if (userPassword.hasAttribute('required')) if (userPassword.value.length === 0) errors.password = 'This field is required';
     else if (userPassword.value.length < 2) errors.password = 'Too short password';
     else good.password = 'All right';
 
-    if (!userRepeatPassword.getAttribute('required')) errors.repeatPassword = 'This field is required';
+
+    if (userRepeatPassword.hasAttribute('required')) if (userRepeatPassword.value.length === 0) errors.repeatPassword = 'This field is required';
     else if (userRepeatPassword.value.length !== userPassword) errors.repeatPassword = 'Password mismatch';
     else good.repeatPassword = 'All right';
 
-    if (!userLocation.getAttribute('required')) errors.location = 'This field is required';
+    if (userLocation.hasAttribute('required')) if (userLocation.value.length === 0) errors.location = 'This field is required';
     else if (userLocation.value.length < 2) errors.location = 'Too short location';
     else good.location = 'All right';
 
-    if (!userAge.getAttribute('required')) errors.age = 'This field is required'
+    if (userAge.hasAttribute('required')) if (userAge.value.length === 0) errors.age = 'This field is required';
     else good.age = 'All right';
 
     if (Object.keys(errors).length) {
@@ -176,19 +177,20 @@
     let errors = {};
     let good = {};
 
-    if (!userName.getAttribute('required')) errors.name = 'This field is required';
+    if (userName.hasAttribute('required')) if (userName.value.length === 0) errors.name = 'This field is required';
     else if (userName.value.length < 2) errors.name = 'Name too short';
     else good.name = 'All right';
 
-    if (!userMessageSubject.getAttribute('required')) errors.message = 'This field is required';
+    if (userMessageSubject.hasAttribute('required')) if (userMessageSubject.value.length === 0) errors.message = 'This field is required';
     else if (userMessageSubject.value.length < 2) errors.message = 'Message subject too short';
     else good.message = 'All right';
 
-    if (!userEmail.getAttribute('required')) errors.email = 'This field is required';
+    if (userEmail.hasAttribute('required')) if (userEmail.value.length === 0) errors.email = 'This field is required';
     else if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
     else good.email = 'All right';
 
-    if (!userPhone.getAttribute('required')) errors.phone = 'This field is required';
+
+    if (userPhone.hasAttribute('required')) if (userPhone.value.length === 0) errors.phone = 'This field is required';
     else if (!isPhoneCorrect(userPhone.value)) errors.phone = 'Please enter a valid phone';
     else good.phone = 'All right';
 

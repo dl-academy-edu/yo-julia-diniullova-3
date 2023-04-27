@@ -1,22 +1,28 @@
 (function() {
   const slider = document.querySelector('.slider');
-  const wrapper = slider.querySelector('.slider__wrapper');
+  const wrapper = slider.querySelector('.slider__wrapper'); // book
   const buttonLeft = slider.querySelector('.slider__btn--left');
   const buttonRight = slider.querySelector('.slider__btn--right');
   const innerWrapper = wrapper.querySelector('.slider__inner-wrapper');
   const pagination = slider.querySelector('.slider__pagination')
-  const slides = [...innerWrapper.querySelectorAll('.slider__slide')];
+  const slides = [...innerWrapper.querySelectorAll('.slider__slide')]; //strArray
   const slidesCount = slides.length;
   const dots = [];
   const animationDuration = 500;
 
   let timer = null;
   let wrapperWidth = wrapper.offsetWidth;
-  let activeSlideIndex = 0;
+  let activeSlideIndex;
+
+  const updateActiveSlide = () => {
+    +localStorage.getItem('activeSlideIndex')
+      ? (activeSlideIndex = +localStorage.getItem('activeSlideIndex'))
+      : (activeSlideIndex = 0);
+  }
+  updateActiveSlide();
 
   initWidth();
   createDots();
-  setActiveSlide(0);
 
   window.addEventListener('resize', () => {
     initWidth();
@@ -41,7 +47,7 @@
 
     if (withAnimation) {
       clearTimeout(timer);
-      innerWrapper.style.transition = 'transform ${animationDuration}ms';
+      innerWrapper.style.transition = `transform ${animationDuration}ms`;
       timer = setTimeout(() => {
         innerWrapper.style.transition = '';
       }, animationDuration);
@@ -58,6 +64,7 @@
     dots[activeSlideIndex].classList.remove('slider__dot--active');
     dots[index].classList.add('slider__dot--active');
     activeSlideIndex = index;
+    localStorage.setItem('activeSlideIndex', index);
   }
 
   function initWidth() {
