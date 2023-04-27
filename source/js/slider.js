@@ -1,17 +1,17 @@
 (function() {
   const slider = document.querySelector('.slider');
-  const wrapper = slider.querySelector('.slider__wrapper'); // book
+  const wrapper = slider.querySelector('.slider__wrapper');
   const buttonLeft = slider.querySelector('.slider__btn--left');
   const buttonRight = slider.querySelector('.slider__btn--right');
   const innerWrapper = wrapper.querySelector('.slider__inner-wrapper');
   const pagination = slider.querySelector('.slider__pagination')
-  const slides = [...innerWrapper.querySelectorAll('.slider__slide')]; //strArray
+  const slides = [...innerWrapper.querySelectorAll('.slider__slide')];
   const slidesCount = slides.length;
   const dots = [];
   const animationDuration = 500;
 
   let timer = null;
-  let wrapperWidth = wrapper.offsetWidth;
+  let wrapperWidth;
   let activeSlideIndex;
 
   const updateActiveSlide = () => {
@@ -20,6 +20,13 @@
       : (activeSlideIndex = 0);
   }
   updateActiveSlide();
+
+  const updateWidth = () => {
+    localStorage.getItem('transform')
+      ? (innerWrapper.style.transform = localStorage.getItem('transform'))
+      : (innerWrapper.style.transform = 'translateX(0)');
+  }
+  updateWidth();
 
   initWidth();
   createDots();
@@ -41,6 +48,7 @@
     if (index < 0 || index >= slidesCount) return;
 
     innerWrapper.style.transform = `translateX(${index * wrapperWidth * (-1)}px)`;
+    localStorage.setItem('transform', innerWrapper.style.transform);
 
     buttonLeft.removeAttribute('disabled');
     buttonRight.removeAttribute('disabled');
