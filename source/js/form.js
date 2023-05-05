@@ -1,3 +1,17 @@
+const BASE_SERVER = 'https://academy.directlinedev.com';
+
+function sendRequest({url, method = 'GET', headers, body = null}) {
+  return fetch(BASE_SERVER + url, {
+      method,
+      headers,
+      body,
+  })
+}
+
+function interactionModal(modal) {
+  modal.classList.toggle('open');
+}
+
 (function() {
   const buttonOpen = document.querySelectorAll('[data-modal]');
 
@@ -11,12 +25,8 @@
       let modalId = element.dataset.modal;
       let modal = document.getElementById(modalId);
 
-      modalOpen(modal);
+      interactionModal(modal);
     })
-  }
-
-  function modalOpen(modal) {
-    modal.classList.add('open');
   }
 
   for (let element of buttonClose) {
@@ -24,7 +34,7 @@
       let modalId = element.dataset.close;
       let modal = document.getElementById(modalId);
 
-      modalClose(modal);
+      interactionModal(modal);
     })
   }
 
@@ -35,10 +45,6 @@
       }
     }
   });
-
-  function modalClose(modal) {
-    modal.classList.remove('open');
-  }
 })();
 
 
@@ -121,9 +127,8 @@
     else if (userPassword.value.length < 2) errors.password = 'Too short password';
     else good.password = 'All right';
 
-
     if (userRepeatPassword.hasAttribute('required')) if (userRepeatPassword.value.length === 0) errors.repeatPassword = 'This field is required';
-    else if (userRepeatPassword.value.length !== userPassword) errors.repeatPassword = 'Password mismatch';
+    else if (userRepeatPassword.value !== userPassword.value) errors.repeatPassword = 'Password mismatch';
     else good.repeatPassword = 'All right';
 
     if (userLocation.hasAttribute('required')) if (userLocation.value.length === 0) errors.location = 'This field is required';
@@ -257,6 +262,17 @@ function goodCreator(goodMessage) {
   messageGoodContainer.classList.add('valid-feedback');
   messageGoodContainer.innerText = goodMessage;
   return messageGoodContainer;
+}
+
+function clearErrors(element) {
+  const messagesError = element.querySelectorAll('.invalid-feedback');
+  const messagesGood = element.querySelectorAll('.valid-feedback');
+  const invalids = element.querySelectorAll('.is-invalid');
+  const valids = element.querySelectorAll('.is-valid');
+  messagesError.forEach(message => message.remove());
+  messagesGood.forEach(message => message.remove());
+  invalids.forEach(invalid => invalid.classList.remove('is-invalid'));
+  valids.forEach(valid => valid.classList.remove('is-valid'));
 }
 
 function isEmailCorrect(email) {
