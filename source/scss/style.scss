@@ -893,6 +893,50 @@
   }
 }
 
+.formSuccessfully {
+  position: fixed;
+  background: rgba(246, 246, 246, 0.99);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+
+  &__text {
+    font-family: 'Gilroy';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #03BC3C;
+    width: 220px;
+  }
+
+  &__btn {
+    width: 25px;
+    height: 25px;
+    background: none;
+    background-image: url(/img/icon/Close.svg);
+    border: 0;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 
 
 

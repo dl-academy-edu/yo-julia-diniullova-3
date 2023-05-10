@@ -189,6 +189,10 @@
 
     <form name="register" id="register" class="register" novalidate>
       <div class="register__overlay" data-close="register"></div>
+      <div class="register__formSuccessfully formSuccessfully full hidden">
+        <p class="formSuccessfully__text"></p>
+        <button class="formSuccessfully__btn" type="button"></button>
+      </div>
       <div class="register__wrapper">
         <label for="email" class="register__label">Email<span class="label__star--red"> *</span></label>
         <input name="email" type="email" id="email" class="register__input register__input--width" required>
@@ -233,6 +237,10 @@
 
     <form id="send" class="send" novalidate>
       <div class="send__overlay" data-close="send"></div>
+      <div class="send__formSuccessfully formSuccessfully full hidden">
+        <p class="formSuccessfully__text"></p>
+        <button class="formSuccessfully__btn" type="button"></button>
+      </div>
       <div class="send__wrapper">
         <div class="send__wrapper--inputs">
           <div class="send__wrapper--input">

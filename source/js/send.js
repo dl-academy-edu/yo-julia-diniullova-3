@@ -1,19 +1,41 @@
-const btnOpenSend = document.querySelector('.footer__btn');
 const modalSend = document.querySelector('.send__btn');
-const btnCloseSend = document.querySelector('.send__close');
 const loaderSend = document.querySelector('.loader_js');
 const sendForm = document.forms.send;
+const formSuccessfullySend = document.querySelector('.send__formSuccessfully');
+const btnFormSuccessSend = formSuccessfullySend.querySelector('.formSuccessfully__btn');
+const textSuccessfullySend = formSuccessfullySend.querySelector('.formSuccessfully__text');
 
 sendForm.addEventListener('submit', (e) => {
   e.preventDefault();
   loaderSend.classList.remove('hidden');
-  const email = "diniullova2011@yandex.ru";
-  let data = {};
-  data.email = sendForm.email.value;
-  data.name = sendForm.name.value;
-  data.message = (sendForm.message.value) ? sendForm.message.value : " ";
-  data.phone = +sendForm.phone.value;
-  data.textarea = sendForm.textarea.value;
+
+  const body = {
+    email: sendForm.email.value,
+    name: sendForm.name.value,
+    message: sendForm.message.value,
+    phone: +sendForm.phone.value,
+    textarea: sendForm.textarea.value
+  }
+
+  let data = {
+    to: "diniullova7@yandex.ru",
+    body: JSON.stringify(body),
+  };
+
+  data.body.email = sendForm.email.value;
+  data.body.name = sendForm.name.value;
+  data.body.message = (sendForm.message.value) ? sendForm.message.value : " ";
+  data.body.phone = +sendForm.phone.value;
+  data.body.textarea = sendForm.textarea.value;
+
+  createFormSuccess = () => {
+    textSuccessfullySend.innerText = 'Form has been sent successfully';
+    formSuccessfullySend.classList.remove('hidden');
+  }
+
+  btnFormSuccessSend.addEventListener('click', () => {
+    formSuccessfullySend.classList.add('hidden');
+  });
 
   sendRequest({
     url: '/api/emails',
@@ -21,7 +43,6 @@ sendForm.addEventListener('submit', (e) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    to: email,
     body: JSON.stringify(data),
   })
   .then(res => {
@@ -29,10 +50,10 @@ sendForm.addEventListener('submit', (e) => {
   })
   .then(res => {
     if ( res.success ) {
-      interactionModal(modalReg);
-      alert(`Сообщение ${res.body.message} отправлено!`);
-      clearErrors(regForm);
-      regForm.reset();
+      interactionModal(modalSend);
+      createFormSuccess();
+      clearErrors(sendForm);
+      sendForm.reset();
       } else {
           throw res;
       }
@@ -41,6 +62,6 @@ sendForm.addEventListener('submit', (e) => {
 
   })
   .finally(() => {
-    loaderReg.classList.add('hidden');
+    loaderSend.classList.add('hidden');
   });
 })
