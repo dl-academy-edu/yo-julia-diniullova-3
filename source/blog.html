@@ -46,7 +46,8 @@
         <form class="filter" name="filter">
           <div class="filter__wrapper">
             <fieldset class="filter__fieldset">
-              <legend for="tags">Tags</legend>
+              <legend class="filter__legend">Tags</legend>
+              <div class="filter__tags"></div>
             </fieldset>
             <fieldset class="filter__fieldset">
               <legend class="filter__legend">Views</legend>
@@ -107,7 +108,7 @@
             <button class="filter__btn filter__btn--margin">Reset</button>
           </div>
           <div class="filter__wrapper">
-            <input type="text" class="filter__input--search">
+            <input type="text" name="name" class="filter__input--search">
             <button class="filter__btn">Search</button>
           </div>
           <div class="full hidden loader">
@@ -116,6 +117,7 @@
             </div>
           </div>
         </form>
+        <div class="posts"></div>
       </section>
     </main>
     @@include('blocks/footer.html')

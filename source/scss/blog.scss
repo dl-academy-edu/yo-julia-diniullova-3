@@ -20,6 +20,7 @@
   flex-direction: column;
   display: flex;
   gap: 35px;
+  margin-bottom: 20px;
 
   &__wrapper {
     display: flex;
@@ -76,6 +77,12 @@
     }
   }
 
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+  }
+
   &__input {
     margin-top: 10px;
 
@@ -128,6 +135,31 @@
         background-image: url(/img/icon/checkbox_active.svg);
       }
     }
+
+    &--tags {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
+      &+label {
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+      }
+
+      &+label::before {
+        content: '';
+        width: 25px;
+        height: 25px;
+        background-image: url(/img/icon/checkbox.svg);
+        margin-right: 5px;
+        cursor: pointer;
+      }
+
+      &:checked+label::before {
+        background-image: url(/img/icon/checkbox_active.svg);
+      }
+    }
   }
 
   &__input--search {
@@ -160,4 +192,65 @@
 
 .hidden {
   display: none;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border: none;
+  padding-top: 20px;
+  border-top: 2px solid #E5E5E5;
+
+  &__title {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #070707;
+  }
+
+  &__text {
+    font-family: 'Gilroy';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070707;
+    margin-bottom: 20px;
+  }
+
+  &__tag {
+    width: 30px;
+    height: 10px;
+    border-radius: 5px;
+  }
+
+  &__content {
+    margin-top: 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__link {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    border-bottom: 1px dashed #070707;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }
