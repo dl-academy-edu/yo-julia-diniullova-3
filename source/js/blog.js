@@ -1,11 +1,30 @@
 const loader = document.querySelector('.loader');
 
+const LIMIT = 5;
+
+let loaderCount = 0;
+
+const showLoader = () => {
+  loaderCount++;
+  loader.classList.remove('hidden');
+}
+
+const hideLoader = () => {
+  loaderCount--;
+  if(loaderCount <= 0) {
+    loader.classList.add('hidden');
+    loaderCount = 0;
+  }
+}
+
 (function() {
     const form = document.forms.filter;
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        let data = {};
+        let data = {
+          page: 0,
+        };
 
         data.name = form.elements.name.value;
         data.tags = [...form.elements.tags].filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
@@ -18,16 +37,13 @@ const loader = document.querySelector('.loader');
         setSearchParams(data);
     })
 
-    let reqTags = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
 
-    reqTags.open('GET', BASE_SERVER + '/api/tags');
-    reqTags.setRequestHeader('Content-Type', 'application/json');
-
-    loader.classList.remove('hidden');
-    reqTags.send();
-    reqTags.onload = () => {
-      loader.classList.add('hidden');
-      const tags = JSON.parse(reqTags.response).data;
+    xhr.open('GET', BASE_SERVER + '/api/tags');
+    xhr.send();
+    showLoader();
+    xhr.onload = () => {
+      const tags = JSON.parse(xhr.response).data;
       const tagsBox = document.querySelector('.filter__tags');
       tags.forEach(tag => {
         const tagHTML = createTag(tag);
@@ -36,11 +52,8 @@ const loader = document.querySelector('.loader');
 
       const params = getParamsFromLocation();
       setDataToFilter(params);
+      hideLoader();
       getData(params);
-    }
-    reqTags.onerror = () => {
-      loader.classList.add('hidden');
-      alert("Сервер недоступен!");
     }
 })();
 
@@ -53,6 +66,7 @@ function getParamsFromLocation() {
     views: searchParams.get('views'),
     comments: searchParams.getAll('comments'),
     show: searchParams.get('show'),
+    page: +searchParams.get('page') || 0,
   }
 }
 
@@ -62,8 +76,22 @@ function setSearchParams(data) {
   data.tags.forEach(tag => {
     searchParams.append('tags', tag);
   });
+  if(data.page) {
+    searchParams.set('page', data.page);
+  } else {
+    searchParams.set('page', 0);
+  }
   if(data.sort) {
     searchParams.set('sort', data.sort);
+  }
+  if(data.views) {
+    searchParams.set('views', data.views);
+  }
+  if(data.comments) {
+    searchParams.set('comments', data.comments);
+  }
+  if(data.show) {
+    searchParams.set('show', data.show);
   }
   history.replaceState(null, document.title, '?' + searchParams.toString());
 }
@@ -86,36 +114,100 @@ function getData(params) {
 
   searchParams.set('filter', JSON.stringify(filter));
 
+  searchParams.set('limit', LIMIT);
+
+  if(+params.page) {
+    searchParams.set('offset', (+params.page) * LIMIT);
+  }
+
   if(params.sort) {
-    searchParams.set('sort', JSON.stringify([params.sort, 'DESC']));
+    searchParams.set('sort', JSON.stringify([params.sort, 'ASC']));
   }
 
   xhr.open('GET', BASE_SERVER + '/api/posts?' + searchParams.toString());
   xhr.send();
+  //showLoader();
   result.innerHTML = '';
+  const links = document.querySelector('.sliderPosts__number');
+  links.innerHTML = '';
   xhr.onload = () => {
     const response = JSON.parse(xhr.response);
+    let dataPosts = '';
     response.data.forEach(post => {
-      const card = cardCreate({
+      dataPosts += cardCreate({
         title: post.title,
         text: post.text,
         src: post.photo.desktopPhotoUrl,
-        tags: post.tags
+        tags: post.tags,
+        date: post.date,
+        views: post.views,
+        commentsCount: post.commentsCount,
       })
-      result.insertAdjacentHTML('beforeend', card);
     })
-
+    result.innerHTML = dataPosts;
+   // hideLoader();
+    const pageCount = Math.ceil(response.count / LIMIT);
+    for(let i = 0; i < pageCount; i++) {
+      const link = linkElementCreate(i);
+      links.insertAdjacentElement('beforeend', link);
+    }
   }
 }
 
-function cardCreate({title, text, src, tags}) {
+function linkElementCreate(page) {
+  const link = document.createElement('a');
+  link.href = '?page=' + page;
+  link.innerText = (page + 1);
+  link.classList.add('sliderPosts__link');
+
+  let params = getParamsFromLocation();
+  if(page === +params.page) {
+    link.classList.add('sliderPosts__link--active');
+  }
+
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const links = document.querySelectorAll('.sliderPosts__link');
+    let searchParams = new URLSearchParams(location.search);
+    let params = getParamsFromLocation();
+    links[params.page].classList.remove('sliderPosts__link--active');
+    searchParams.set('page', page);
+    links[page].classList.add('active');
+    history.replaceState(null, document.title, '?' + searchParams.toString());
+    getData(getParamsFromLocation());
+  });
+  return link;
+}
+
+function cardCreate({title, text, src, tags, date, views, commentsCount}) {
+
+  let dateFromServer = new Date(date);
+
+  let year = dateFromServer.getFullYear();
+  let month = dateFromServer.getMonth() + 1;
+  let day = dateFromServer.getDate();
+
+  if (month < 10) {
+    month = '0' + month;
+  }
+  if (day < 10) {
+    day = '0' + day;
+  }
+
+  const finalDate = `${day}.${month}.${year}`;
+
   return `
-  <div>
+  <div class="posts__wrapper">
     <div class="card">
       <img src ="${BASE_SERVER}${src}" alt="${title}">
       <div class="card__content">
         <div class="card__wrapper">
-          ${tags.map(tag => `<div class="card__tag" style="background: ${tag.color}"></div>`)}
+          ${tags.map(tag => `<div class="card__tag" style="background: ${tag.color}"></div>`).join('')}
+        </div>
+        <div class="card__info">
+        <p class="card__subtitle">${finalDate}</p>
+        <p class="card__subtitle">${views} views</p>
+        <p class="card__subtitle">${commentsCount} comments</p>
         </div>
         <h5 class="card__title">${title}</h5>
         <p class="card__text">${text}</p>
@@ -147,8 +239,8 @@ function setDataToFilter(data) {
 
 function createTag({id, name, color}) {
   return `
-  <div class="filter__tags">
+  <label class="filter__tag">
     <input name="tags" type="checkbox" id="tags-${id}" value="${id}" class="filter__input--tags">
-    <label for="tags-${id}"></label>
-  </div>`
+    <span class="filter__span" style="border-color: ${color}"></span>
+  </label>`
 }

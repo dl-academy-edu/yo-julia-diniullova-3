@@ -820,6 +820,10 @@
     &:hover {
       opacity: 0.5;
     }
+
+    &:focus{
+      outline: none;
+    }
   }
 
   &__btn--right {
@@ -836,6 +840,10 @@
 
     &:hover {
       opacity: 0.5;
+    }
+
+    &:focus{
+      outline: none;
     }
   }
 

@@ -24,19 +24,7 @@
     <!-- endbuild -->
   </head>
   <body>
-    <header class="header container">
-      <a href="index.html" class="header__btn--fatty">Home</a>
-      <nav class="header__nav">
-        <ul class="header__list undotted">
-          <li class="header__item">
-            <a href="blog.html" class="header__btn">My blog</a>
-          </li>
-          <li class="header__item">
-            <button class="header__btn header__profile">My profile</button>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    @@include('blocks/header.html')
     <main class="main">
       <section class="blog container">
         <h1 class="blog__title">My blog</h1>
@@ -44,8 +32,8 @@
           "margin": "burger__btn--blog"
         })
         <form class="filter" name="filter">
-          <div class="filter__wrapper">
-            <fieldset class="filter__fieldset">
+          <div class="filter__wrapper filter__wrapper--one">
+            <fieldset class="filter__fieldset position">
               <legend class="filter__legend">Tags</legend>
               <div class="filter__tags"></div>
             </fieldset>
@@ -79,7 +67,7 @@
                 <label class="filter__label" for="50">1-50</label>
               </div>
             </fieldset>
-            <fieldset class="filter__fieldset">
+            <fieldset class="filter__fieldset filter__show">
               <legend class="filter__legend">How show?</legend>
               <div class="filter__wrapper--inputs">
                 <input class="filter__input filter__input--radio" name="show" type="radio" value="5" id="5" checked>
@@ -105,19 +93,24 @@
                 <label class="filter__label" for="sort_views">views</label>
               </div>
             </fieldset>
-            <button class="filter__btn filter__btn--margin">Reset</button>
+            <button class="filter__btn filter__btn--margin filter__btn--reset">Reset</button>
           </div>
-          <div class="filter__wrapper">
+          <div class="filter__wrapper filter__wrapper--two">
             <input type="text" name="name" class="filter__input--search">
             <button class="filter__btn">Search</button>
           </div>
-          <div class="full hidden loader">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-          </div>
         </form>
         <div class="posts"></div>
+        <div class="sliderPosts">
+          <button class="slider__btn--left"></button>
+          <div class="sliderPosts__number"></div>
+          <button class="slider__btn--right"></button>
+        </div>
+        <div class="full hidden loader">
+          <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+          </div>
+        </div>
       </section>
     </main>
     @@include('blocks/footer.html')
