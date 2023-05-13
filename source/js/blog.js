@@ -52,8 +52,8 @@ const hideLoader = () => {
 
       const params = getParamsFromLocation();
       setDataToFilter(params);
-      hideLoader();
       getData(params);
+      hideLoader();
     }
 })();
 
@@ -125,8 +125,9 @@ function getData(params) {
   }
 
   xhr.open('GET', BASE_SERVER + '/api/posts?' + searchParams.toString());
+  xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send();
-  //showLoader();
+  showLoader();
   result.innerHTML = '';
   const links = document.querySelector('.sliderPosts__number');
   links.innerHTML = '';
@@ -145,7 +146,7 @@ function getData(params) {
       })
     })
     result.innerHTML = dataPosts;
-   // hideLoader();
+    hideLoader();
     const pageCount = Math.ceil(response.count / LIMIT);
     for(let i = 0; i < pageCount; i++) {
       const link = linkElementCreate(i);
