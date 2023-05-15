@@ -23,7 +23,7 @@ const hideLoader = () => {
         e.preventDefault();
 
         let data = {
-          page: 0,
+          page: 1,
         };
 
         data.name = form.elements.name.value;
@@ -62,11 +62,11 @@ function getParamsFromLocation() {
   return {
     name: searchParams.get('name') || '',
     tags: searchParams.getAll('tags'),
-    sort: searchParams.getAll('sort'),
+    sort: searchParams.get('sort'),
     views: searchParams.get('views'),
     comments: searchParams.getAll('comments'),
     show: searchParams.get('show'),
-    page: +searchParams.get('page') || 0,
+    page: +searchParams.get('page') || 1,
   }
 }
 
@@ -79,7 +79,7 @@ function setSearchParams(data) {
   if(data.page) {
     searchParams.set('page', data.page);
   } else {
-    searchParams.set('page', 0);
+    searchParams.set('page', 1);
   }
   if(data.sort) {
     searchParams.set('sort', data.sort);
@@ -156,9 +156,12 @@ function getData(params) {
 }
 
 function linkElementCreate(page) {
+  const btnLeft = document.querySelector('.btnLeft--js');
+  const btnRight = document.querySelector('.btnRight--js');
   const link = document.createElement('a');
+  page++;
   link.href = '?page=' + page;
-  link.innerText = (page + 1);
+  link.innerText = (page);
   link.classList.add('sliderPosts__link');
 
   let params = getParamsFromLocation();
@@ -177,6 +180,31 @@ function linkElementCreate(page) {
     history.replaceState(null, document.title, '?' + searchParams.toString());
     getData(getParamsFromLocation());
   });
+
+  btnLeft.addEventListener('click', () => {
+    page--;
+    const links = document.querySelectorAll('.sliderPosts__link');
+    let searchParams = new URLSearchParams(location.search);
+    let params = getParamsFromLocation();
+    links[params.page].classList.remove('sliderPosts__link--active');
+    searchParams.set('page', page);
+    links[page].classList.add('active');
+    history.replaceState(null, document.title, '?' + searchParams.toString());
+    getData(getParamsFromLocation());
+  });
+
+  btnRight.addEventListener('click', () => {
+    page++;
+    const links = document.querySelectorAll('.sliderPosts__link');
+    let searchParams = new URLSearchParams(location.search);
+    let params = getParamsFromLocation();
+    links[params.page].classList.remove('sliderPosts__link--active');
+    searchParams.set('page', page);
+    links[page].classList.add('active');
+    history.replaceState(null, document.title, '?' + searchParams.toString());
+    getData(getParamsFromLocation());
+  });
+
   return link;
 }
 
@@ -224,8 +252,8 @@ function setDataToFilter(data) {
   form.elements.tags.forEach(checkbox => {
     checkbox.checked = data.tags.includes(checkbox.value);
   });
-  form.elements.sort.forEach(checkbox => {
-    checkbox.checked = data.sort.includes(checkbox.value);
+  form.elements.sort.forEach(radio => {
+    radio.checked = data.sort === radio.value;
   });
   form.elements.views.forEach(radio => {
     radio.checked = data.views === radio.value;

@@ -81,15 +81,15 @@
             <fieldset class="filter__fieldset">
               <legend class="filter__legend">Sort by</legend>
               <div class="filter__wrapper--inputs">
-                <input class="filter__input filter__input--checkbox" name="sort" type="checkbox" value="date" id="date" checked>
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="date" id="date" checked>
                 <label class="filter__label" for="date">date</label>
               </div>
               <div class="filter__wrapper--inputs">
-                <input class="filter__input filter__input--checkbox" name="sort" type="checkbox" value="title" id="title">
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="title" id="title">
                 <label class="filter__label" for="title">title</label>
               </div>
               <div class="filter__wrapper--inputs">
-                <input class="filter__input filter__input--checkbox" name="sort" type="checkbox" value="views" id="sort_views">
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="views" id="sort_views">
                 <label class="filter__label" for="sort_views">views</label>
               </div>
             </fieldset>
@@ -102,9 +102,9 @@
         </form>
         <div class="posts"></div>
         <div class="sliderPosts">
-          <button class="slider__btn--left"></button>
+          <button class="slider__btn--left btnLeft--js"></button>
           <div class="sliderPosts__number"></div>
-          <button class="slider__btn--right"></button>
+          <button class="slider__btn--right btnRight--js"></button>
         </div>
         <div class="full hidden loader">
           <div class="spinner-border" role="status">
