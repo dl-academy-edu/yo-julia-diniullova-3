@@ -28,7 +28,75 @@
     <main class="main">
       <section class="profile container">
         <h1 class="profile__title">My profile</h1>
+        @@include('blocks/burger.html', {
+          "margin": "burger__btn"
+        })
+        <div class="profile__wrapper">
+          <div class="profile__img j-profile-img"></div>
+          <div class="profile__info">
+            <div class="profile__text">
+              <strong class="profile__strong">Name:</strong>
+              <span class="j-profile-name"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Surname:</strong>
+              <span class="j-profile-surname"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Email:</strong>
+              <span class="j-profile-email"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Password:</strong>
+              <span class="j-profile-password"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Location:</strong>
+              <span class="j-profile-location"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Age:</strong>
+              <span class="j-profile-age"></span>
+            </div>
+            <button class="profile__btn j-editing-button">Change password</button>
+            <button class="profile__btn">Change other data</button>
+            <button class="profile__btn">Delete account</button>
+          </div>
+        </div>
+        </section>>
     </main>
+    <div class="loader_js full loader hidden">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <form name="editPassword" class="editPassword" novalidate>
+      <div class="editPassword__overlay" data-close="editPassword"></div>
+      <div class="editPassword__wrapper">
+        <label for="oldPassword" class="editPassword__label">Old password<span class="label__star--red"> *</span></label>
+        <input name="oldPassword" type="password" id="oldPassword" class="editPassword__input" required>
+        <label for="password" class="editPassword__label">New password<span class="label__star--red"> *</span></label>
+        <input name="password" type="password" id="password" class="editPassword__input" required>
+        <label for="repeatPassword" class="editPassword__label">Repeat new password<span class="label__star--red"> *</span></label>
+        <input name="repeatPassword" type="password" id="repeatPassword" class="editPassword__input" required>
+        <button type="submit" class="editPassword__btn">Change password</button>
+      </div>
+      <div class="editPassword__close" data-close="editPassword"></div>
+    </form>
+    <form name="signIn" id="signIn" class="signIn" novalidate>
+      <div class="signIn__overlay" data-close="signIn"></div>
+      <div class="signIn__wrapper">
+        <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
+        <input name="email" type="email" id="email" class="signIn__input" required>
+        <label for="password" class="signIn__label">Password<span class="label__star--red"> *</span></label>
+        <input name="password" type="password" id="password" class="signIn__input" required>
+        <button type="submit" class="signIn__btn">Log in</button>
+      </div>
+      <div class="signIn__close" data-close="signIn"></div>
+    </form>
+    <script src="js/form.js"></script>
     <script src="js/burger.js"></script>
+    <script src="js/signIn.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>

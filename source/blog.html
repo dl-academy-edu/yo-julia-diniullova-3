@@ -114,6 +114,22 @@
       </section>
     </main>
     @@include('blocks/footer.html')
+    <div class="loader_js full loader hidden">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <form name="signIn" id="signIn" class="signIn" novalidate>
+      <div class="signIn__overlay" data-close="signIn"></div>
+      <div class="signIn__wrapper">
+        <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
+        <input name="email" type="email" id="email" class="signIn__input" required>
+        <label for="password" class="signIn__label">Password<span class="label__star--red"> *</span></label>
+        <input name="password" type="password" id="password" class="signIn__input" required>
+        <button type="submit" class="signIn__btn">Log in</button>
+      </div>
+      <div class="signIn__close" data-close="signIn"></div>
+    </form>
     <form name="send" class="send">
       <div class="send__overlay"></div>
       <div class="send__wrapper">
@@ -154,5 +170,6 @@
     <script src="js/burger.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/blog.js"></script>
+    <script src="js/signIn.js"></script>
   </body>
 </html>
