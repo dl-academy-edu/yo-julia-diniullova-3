@@ -59,7 +59,7 @@
               <span class="j-profile-age"></span>
             </div>
             <button class="profile__btn j-editing-button">Change password</button>
-            <button class="profile__btn">Change other data</button>
+            <button class="profile__btn j-editing-data">Change other data</button>
             <button class="profile__btn">Delete account</button>
           </div>
         </div>
@@ -75,13 +75,49 @@
       <div class="editPassword__wrapper">
         <label for="oldPassword" class="editPassword__label">Old password<span class="label__star--red"> *</span></label>
         <input name="oldPassword" type="password" id="oldPassword" class="editPassword__input" required>
-        <label for="password" class="editPassword__label">New password<span class="label__star--red"> *</span></label>
-        <input name="password" type="password" id="password" class="editPassword__input" required>
+        <label for="newPassword" class="editPassword__label">New password<span class="label__star--red"> *</span></label>
+        <input name="password" type="password" id="newPassword" class="editPassword__input" required>
         <label for="repeatPassword" class="editPassword__label">Repeat new password<span class="label__star--red"> *</span></label>
         <input name="repeatPassword" type="password" id="repeatPassword" class="editPassword__input" required>
         <button type="submit" class="editPassword__btn">Change password</button>
       </div>
       <div class="editPassword__close" data-close="editPassword"></div>
+    </form>
+    <form name="editData" class="editData" novalidate>
+      <div class="editData__overlay" data-close="editData"></div>
+      <div class="editData__wrapper">
+        <div class="editData__wrapper--input">
+          <label for="oldPassword" class="editData__label">Email</label>
+          <input name="email" type="email" id="email" class="editData__input editData__input--email" required>
+        </div>
+        <div class="editData__wrapper--inputs">
+          <div class="editData__wrapper--input">
+            <label for="name" class="editData__label">Name</label>
+            <input name="name" type="text" id="name" class="editData__input" required>
+          </div>
+          <div class="editData__wrapper--input">
+            <label for="repeatPassword" class="editData__label">Surname</label>
+            <input name="surname" type="text" id="surname" class="editData__input" required>
+          </div>
+        </div>
+        <div class="editData__wrapper--inputs">
+          <div class="editData__wrapper--input">
+            <label for="location" class="editData__label">Location</label>
+            <input name="location" type="text" id="location" class="editData__input" required>
+          </div>
+          <div class="editData__wrapper--input">
+            <label for="age" class="editData__label">Age</label>
+            <input name="age" type="text" id="age" class="editData__input" required>
+          </div>
+        </div>
+        <div class="editData__wrapper--input">
+          <label class="editData__label">Profile picture</label>
+          <label for="picture" class="editData__label--img"></label>
+          <input name="picture" type="file" id="picture" class="editData__input editData__input--picture" required>
+        </div>
+        <button type="submit" class="editData__btn">Submit changes</button>
+      </div>
+      <div class="editData__close" data-close="editData"></div>
     </form>
     <form name="signIn" id="signIn" class="signIn" novalidate>
       <div class="signIn__overlay" data-close="signIn"></div>

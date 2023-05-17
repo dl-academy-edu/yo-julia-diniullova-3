@@ -11,11 +11,53 @@
   const modalEdit = document.forms.editPassword;
   const btnCloseModalEdit = document.querySelector('.editPassword__close');
 
+  const btnOpenModalEditData = document.querySelector('.j-editing-data');
+  const modalEditData = document.forms.editData;
+  const btnCloseModalEditData = document.querySelector('.editData__close');
+
   let profile = null;
 
   getProfile();
 
   function changeData(e) {
+    e.preventDefault();
+    const data = new FormData(editData);
+    sendRequest({
+      method: 'PUT',
+      url: '/api/users',
+      body: data,
+      headers: {
+        'x-access-token': localStorage.getItem('token'),
+      }
+    })
+    .then(res => {
+      if(res.status === 401 || res.status === 403) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        location.pathname = '/';
+        return;
+      }
+      return res.json();
+    })
+    .then(res => {
+      if(res.success) {
+        profile = res.data;
+        renderProfile();
+      } else {
+        throw res;
+      }
+    })
+    .catch(err => {
+      if(err._message) {
+        alert(err._message);
+      }
+    })
+    .finally(() => {
+      interactionModal(editData);
+    })
+  }
+
+  function changePassword(e) {
     e.preventDefault();
     const data = new FormData(editPassword);
     sendRequest({
@@ -85,6 +127,7 @@
   }
 
   btnOpenModalEdit.addEventListener('click', () => {
+    editPassword.oldPassword.value = profile.password;
     interactionModal(modalEdit);
   });
 
@@ -92,5 +135,20 @@
     interactionModal(modalEdit);
   });
 
-  editPassword.addEventListener('submit', changeData);
+  btnOpenModalEditData.addEventListener('click', () => {
+    editData.email.value = profile.email;
+    editData.name.value = profile.name;
+    editData.surname.value = profile.surname;
+    editData.location.value = profile.location;
+    editData.age.value = profile.age;
+    //editData.picture.value = profile.photoUrl;
+    interactionModal(modalEditData);
+  });
+
+  btnCloseModalEditData.addEventListener('click', () => {
+    interactionModal(modalEditData);
+  });
+
+  editPassword.addEventListener('submit', changePassword);
+  editData.addEventListener('submit', changeData);
 }());
