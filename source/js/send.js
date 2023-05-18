@@ -1,13 +1,9 @@
 const modalSend = document.querySelector('.send__btn');
-const loaderSend = document.querySelector('.loader_js');
 const sendForm = document.forms.send;
-const formSuccessfullySend = document.querySelector('.send__formSuccessfully');
-const btnFormSuccessSend = formSuccessfullySend.querySelector('.formSuccessfully__btn');
-const textSuccessfullySend = formSuccessfullySend.querySelector('.formSuccessfully__text');
 
 sendForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  loaderSend.classList.remove('hidden');
+  loader.classList.remove('hidden');
 
   const body = {
     email: sendForm.email.value,
@@ -29,12 +25,19 @@ sendForm.addEventListener('submit', (e) => {
   data.body.textarea = sendForm.textarea.value;
 
   createFormSuccess = () => {
-    textSuccessfullySend.innerText = 'Form has been sent successfully';
-    formSuccessfullySend.classList.remove('hidden');
+    textAnswer.innerText = 'Form has been sent successfully';
+    textAnswer.classList.remove('textError');
+    formAnswer.classList.remove('hidden');
   }
 
-  btnFormSuccessSend.addEventListener('click', () => {
-    formSuccessfullySend.classList.add('hidden');
+  createFormError = () => {
+    textAnswer.innerText = 'Wrong data';
+    textAnswer.classList.add('textError');
+    formAnswer.classList.remove('hidden');
+  }
+
+  btnFormAnswer.addEventListener('click', () => {
+    formAnswer.classList.add('hidden');
   });
 
   sendRequest({
@@ -52,6 +55,9 @@ sendForm.addEventListener('submit', (e) => {
     if ( res.success ) {
       interactionModal(modalSend);
       createFormSuccess();
+      setTimeout(() => {
+        formSuccessfully.classList.add('hidden');
+      }, 2000)
       clearErrors(sendForm);
       sendForm.reset();
       } else {
@@ -59,9 +65,17 @@ sendForm.addEventListener('submit', (e) => {
       }
   })
   .catch(err => {
-
+    createFormError();
+    setTimeout(() => {
+      formAnswer.classList.add('hidden');
+    }, 2000)
+    if(err._message) {
+      alert(err._message);
+    }
+    clearErorrs(sendForm);
+    errorFormHandler(err.errors, sendForm);
   })
   .finally(() => {
-    loaderSend.classList.add('hidden');
+    loader.classList.add('hidden');
   });
 })
