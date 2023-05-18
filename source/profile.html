@@ -29,7 +29,7 @@
       <section class="profile container">
         <h1 class="profile__title">My profile</h1>
         @@include('blocks/burger.html', {
-          "margin": "burger__btn"
+          "margin": "burger__profile"
         })
         <div class="profile__wrapper">
           <div class="profile__img j-profile-img"></div>
@@ -60,7 +60,8 @@
             </div>
             <button class="profile__btn j-editing-button">Change password</button>
             <button class="profile__btn j-editing-data">Change other data</button>
-            <button class="profile__btn">Delete account</button>
+            <button class="profile__btn j-logout">Log out</button>
+            <button class="profile__btn j-delete">Delete account</button>
           </div>
         </div>
         </section>
@@ -134,5 +135,6 @@
     <script src="js/burger.js"></script>
     <script src="js/signIn.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/profile_delete.js"></script>
   </body>
 </html>

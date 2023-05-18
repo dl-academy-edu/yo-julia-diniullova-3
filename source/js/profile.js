@@ -6,6 +6,7 @@
   const profilePassword = document.querySelector('.j-profile-password');
   const profileLocation = document.querySelector('.j-profile-location');
   const profileAge = document.querySelector('.j-profile-age');
+  const btnLogOut = document.querySelector('.j-logout');
 
   const btnOpenModalEdit = document.querySelector('.j-editing-button');
   const modalEdit = document.forms.editPassword;
@@ -151,4 +152,11 @@
 
   editPassword.addEventListener('submit', changePassword);
   editData.addEventListener('submit', changeData);
+
+  btnLogOut.addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    location.pathname = '/';
+    rerenderLinks();
+  });
 }());

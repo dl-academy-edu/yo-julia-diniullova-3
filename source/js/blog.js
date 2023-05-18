@@ -1,4 +1,5 @@
 const loader = document.querySelector('.loader');
+const btnReset = document.querySelector('.filter__btn--reset');
 
 const LIMIT = 5;
 
@@ -266,10 +267,14 @@ function setDataToFilter(data) {
   });
 }
 
-function createTag({id, name, color}) {
+function createTag({id, color}) {
   return `
   <label class="filter__tag">
     <input name="tags" type="checkbox" id="tags-${id}" value="${id}" class="filter__input--tags">
     <span class="filter__span" style="border-color: ${color}"></span>
   </label>`
 }
+
+btnReset.addEventListener('click', () => {
+  document.filter.reset();
+});
