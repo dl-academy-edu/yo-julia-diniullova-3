@@ -1,6 +1,7 @@
 const btnDelete = document.querySelector('.j-delete');
 
 btnDelete.addEventListener('click', () => {
+  loader.classList.remove('hidden');
   sendRequest({
     url: `/api/users/:${localStorage.getItem('userId')}`,
     method: 'DELETE',
@@ -23,5 +24,8 @@ btnDelete.addEventListener('click', () => {
   })
   .catch(err => {
     console.log(err);
+  })
+  .finally(() => {
+    loader.classList.add('hidden');
   })
 });

@@ -66,10 +66,10 @@
         </div>
         </section>
     </main>
-    <div class="loader_js full loader hidden">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+    @@include('blocks/loader.html')
+    <div class="answerServer full hidden">
+      <p class="answerServer__text textError"></p>
+      <button class="answerServer__btn" type="button"></button>
     </div>
     <form name="editPassword" class="editPassword" novalidate>
       <div class="editPassword__overlay" data-close="editPassword"></div>
@@ -120,23 +120,9 @@
       </div>
       <div class="editData__close" data-close="editData"></div>
     </form>
-    <form name="signIn" id="signIn" class="signIn" novalidate>
-      <div class="signIn__overlay" data-close="signIn"></div>
-      <div class="signIn__wrapper">
-        <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
-        <input name="email" type="email" id="email" class="signIn__input" required>
-        <label for="password" class="signIn__label">Password<span class="label__star--red"> *</span></label>
-        <input name="password" type="password" id="password" class="signIn__input" required>
-        <button type="submit" class="signIn__btn">Log in</button>
-      </div>
-      <div class="signIn__close" data-close="signIn"></div>
-    </form>
     <script src="js/form.js"></script>
     <script src="js/burger.js"></script>
-    <script src="js/signIn.js"></script>
     <script src="js/profile.js"></script>
     <script src="js/profile_delete.js"></script>
-    <script src="js/send.js"></script>
-    <script src="js/register.js"></script>
   </body>
 </html>

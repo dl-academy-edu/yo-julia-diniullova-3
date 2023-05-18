@@ -14,17 +14,17 @@
       createFormSuccess = () => {
         textAnswer.innerText = 'Form has been sent successfully';
         textAnswer.classList.remove('textError');
-        formAnswer.classList.remove('hidden');
+        answerServer.classList.remove('hidden');
       }
 
       createFormError = () => {
-        textAnswer.innerText = 'Wrong login or password';
+        textAnswer.innerText = 'Wrong data';
         textAnswer.classList.add('textError');
-        formAnswer.classList.remove('hidden');
+        answerServer.classList.remove('hidden');
       }
 
       btnFormAnswer.addEventListener('click', () => {
-        formAnswer.classList.add('hidden');
+        answerServer.classList.add('hidden');
       });
 
       sendRequest({
@@ -45,7 +45,7 @@
           interactionModal(loginForm);
           createFormSuccess();
           setTimeout(() => {
-            formAnswer.classList.add('hidden');
+            answerServer.classList.add('hidden');
           }, 2000)
           setTimeout(() => {
               location.pathname = '/'
@@ -54,8 +54,11 @@
       .catch(err => {
         createFormError();
         setTimeout(() => {
-          formAnswer.classList.add('hidden');
+          answerServer.classList.add('hidden');
         }, 2000)
+        if(err._message) {
+          alert(err._message);
+        }
       })
       .finally(() => {
         loader.classList.add('hidden');

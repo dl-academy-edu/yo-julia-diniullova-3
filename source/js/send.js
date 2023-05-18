@@ -27,17 +27,17 @@ sendForm.addEventListener('submit', (e) => {
   createFormSuccess = () => {
     textAnswer.innerText = 'Form has been sent successfully';
     textAnswer.classList.remove('textError');
-    formAnswer.classList.remove('hidden');
+    answerServer.classList.remove('hidden');
   }
 
   createFormError = () => {
     textAnswer.innerText = 'Wrong data';
     textAnswer.classList.add('textError');
-    formAnswer.classList.remove('hidden');
+    answerServer.classList.remove('hidden');
   }
 
   btnFormAnswer.addEventListener('click', () => {
-    formAnswer.classList.add('hidden');
+    answerServer.classList.add('hidden');
   });
 
   sendRequest({
@@ -56,7 +56,7 @@ sendForm.addEventListener('submit', (e) => {
       interactionModal(modalSend);
       createFormSuccess();
       setTimeout(() => {
-        formSuccessfully.classList.add('hidden');
+        answerServer.classList.add('hidden');
       }, 2000)
       clearErrors(sendForm);
       sendForm.reset();
@@ -67,7 +67,7 @@ sendForm.addEventListener('submit', (e) => {
   .catch(err => {
     createFormError();
     setTimeout(() => {
-      formAnswer.classList.add('hidden');
+      answerServer.classList.add('hidden');
     }, 2000)
     if(err._message) {
       alert(err._message);

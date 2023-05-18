@@ -7,6 +7,11 @@
   const profileLocation = document.querySelector('.j-profile-location');
   const profileAge = document.querySelector('.j-profile-age');
   const btnLogOut = document.querySelector('.j-logout');
+  const loader = document.querySelector('.loader_js');
+
+  const answerServer = document.querySelector('.answerServer');
+  const btnFormAnswer = answerServer.querySelector('.answerServer__btn');
+  const textAnswer = answerServer.querySelector('.answerServer__text');
 
   const btnOpenModalEdit = document.querySelector('.j-editing-button');
   const modalEdit = document.forms.editPassword;
@@ -22,6 +27,7 @@
 
   function changeData(e) {
     e.preventDefault();
+    loader.classList.remove('hidden');
     const data = new FormData(editData);
     sendRequest({
       method: 'PUT',
@@ -35,7 +41,6 @@
       if(res.status === 401 || res.status === 403) {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
-        location.pathname = '/';
         return;
       }
       return res.json();
@@ -43,6 +48,11 @@
     .then(res => {
       if(res.success) {
         profile = res.data;
+        createFormSuccess();
+        setTimeout(() => {
+          answerServer.classList.add('hidden');
+        }, 2000)
+        location.reload();
         renderProfile();
       } else {
         throw res;
@@ -51,15 +61,21 @@
     .catch(err => {
       if(err._message) {
         alert(err._message);
+        createFormError();
+        setTimeout(() => {
+          answerServer.classList.add('hidden');
+        }, 2000)
       }
     })
     .finally(() => {
       interactionModal(editData);
+      loader.classList.add('hidden');
     })
   }
 
   function changePassword(e) {
     e.preventDefault();
+    loader.classList.remove('hidden');
     const data = new FormData(editPassword);
     sendRequest({
       method: 'PUT',
@@ -73,7 +89,6 @@
       if(res.status === 401 || res.status === 403) {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
-        location.pathname = '/';
         return;
       }
       return res.json();
@@ -81,6 +96,11 @@
     .then(res => {
       if(res.success) {
         profile = res.data;
+        createFormSuccess();
+        setTimeout(() => {
+          answerServer.classList.add('hidden');
+        }, 2000)
+        location.reload();
         renderProfile();
       } else {
         throw res;
@@ -89,10 +109,15 @@
     .catch(err => {
       if(err._message) {
         alert(err._message);
+        createFormError();
+        setTimeout(() => {
+          answerServer.classList.add('hidden');
+        }, 2000)
       }
     })
     .finally(() => {
       interactionModal(editPassword);
+      loader.classList.add('hidden');
     })
   }
 
@@ -107,6 +132,7 @@
   }
 
   function getProfile() {
+    loader.classList.remove('hidden');
     sendRequest({
       method: 'GET',
       url: `/api/users/${localStorage.getItem('userId')}`,
@@ -124,6 +150,9 @@
     })
     .catch(err => {
       console.log(err);
+    })
+    .finally(() => {
+      loader.classList.add('hidden');
     })
   }
 
@@ -158,5 +187,21 @@
     localStorage.removeItem('userId');
     location.pathname = '/';
     rerenderLinks();
+  });
+
+  createFormSuccess = () => {
+    textAnswer.innerText = 'Form has been sent successfully';
+    textAnswer.classList.remove('textError');
+    answerServer.classList.remove('hidden');
+  }
+
+  createFormError = () => {
+    textAnswer.innerText = 'Wrong data';
+    textAnswer.classList.add('textError');
+    answerServer.classList.remove('hidden');
+  }
+
+  btnFormAnswer.addEventListener('click', () => {
+    answerServer.classList.add('hidden');
   });
 }());
