@@ -1,13 +1,14 @@
 const btnDelete = document.querySelector('.j-delete');
+const loader = document.querySelector('.loader_js');
 
 btnDelete.addEventListener('click', () => {
   loader.classList.remove('hidden');
   sendRequest({
-    url: `/api/users/:${localStorage.getItem('userId')}`,
     method: 'DELETE',
+    url: `/api/users/:${localStorage.getItem('userId')}`,
     headers: {
       'x-access-token': localStorage.getItem('token'),
-    },
+    }
   })
   .then(res => {
     return res.json();
@@ -16,8 +17,8 @@ btnDelete.addEventListener('click', () => {
     if ( res.success ) {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
-      location.pathname = '/';
       rerenderLinks();
+      location.pathname = '/';
       } else {
           throw res;
       }
