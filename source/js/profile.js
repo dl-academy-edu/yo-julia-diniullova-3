@@ -24,6 +24,7 @@
   let profile = null;
 
   getProfile();
+  rerenderLinks();
 
   function changeData(e) {
     e.preventDefault();

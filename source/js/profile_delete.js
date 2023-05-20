@@ -4,17 +4,15 @@ const loader = document.querySelector('.loader_js');
 btnDelete.addEventListener('click', () => {
   loader.classList.remove('hidden');
   sendRequest({
-    method: 'DELETE',
-    url: `/api/users/:${localStorage.getItem('userId')}`,
-    headers: {
-      'x-access-token': localStorage.getItem('token'),
-    }
+    url: `/api/users/${localStorage.getItem("userId")}`,
+    method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+			"x-access-token": localStorage.getItem("token")
+		}
   })
   .then(res => {
-    return res.json();
-  })
-  .then(res => {
-    if ( res.success ) {
+    if ( res.ok ) {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
       rerenderLinks();
@@ -24,7 +22,8 @@ btnDelete.addEventListener('click', () => {
       }
   })
   .catch(err => {
-    console.log(err);
+    console.log(localStorage.getItem('token'));
+    console.error(err);
   })
   .finally(() => {
     loader.classList.add('hidden');

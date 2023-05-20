@@ -283,3 +283,20 @@ function isPhoneCorrect(phone) {
   return phone.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
 }
 
+function rerenderLinks() {
+  const loginButton = document.querySelector('.login-button');
+  const registerButton = document.querySelector('.register-button');
+  const toProfileButton = document.querySelector('.to-profile');
+
+  const isLogin = localStorage.getItem('token');
+
+  if(isLogin) {
+      loginButton.classList.add('hidden');
+      registerButton.classList.add('hidden');
+      toProfileButton.classList.remove('hidden');
+  } else {
+      loginButton.classList.remove('hidden');
+      registerButton.classList.remove('hidden');
+      toProfileButton.classList.add('hidden');
+  }
+}

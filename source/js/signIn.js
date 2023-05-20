@@ -18,7 +18,7 @@
       }
 
       createFormError = () => {
-        textAnswer.innerText = 'Wrong data';
+        textAnswer.innerText = 'Wrong login or password';
         textAnswer.classList.add('textError');
         answerServer.classList.remove('hidden');
       }
