@@ -53,7 +53,6 @@
         setTimeout(() => {
           answerServer.classList.add('hidden');
         }, 2000)
-        location.reload();
         renderProfile();
       } else {
         throw res;
@@ -69,7 +68,6 @@
       }
     })
     .finally(() => {
-      interactionModal(editData);
       loader.classList.add('hidden');
     })
   }
@@ -101,7 +99,6 @@
         setTimeout(() => {
           answerServer.classList.add('hidden');
         }, 2000)
-        location.reload();
         renderProfile();
       } else {
         throw res;
@@ -117,7 +114,6 @@
       }
     })
     .finally(() => {
-      interactionModal(editPassword);
       loader.classList.add('hidden');
     })
   }

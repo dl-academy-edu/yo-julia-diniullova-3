@@ -17,7 +17,7 @@ function interactionModal(modal) {
 
   if(!buttonOpen) return;
 
-  const modals = document.querySelectorAll('.modal');
+  const modals = document.querySelectorAll('.modal-js');
   const buttonClose = document.querySelectorAll('[data-close]');
 
   for (let element of buttonOpen) {
@@ -152,7 +152,6 @@ function interactionModal(modal) {
         setGood(input, messageGood);
       })
     }
-
   })
 })();
 
@@ -198,6 +197,104 @@ function interactionModal(modal) {
     if (userPhone.hasAttribute('required')) if (userPhone.value.length === 0) errors.phone = 'This field is required';
     else if (!isPhoneCorrect(userPhone.value)) errors.phone = 'Please enter a valid phone';
     else good.phone = 'All right';
+
+    if (Object.keys(errors).length) {
+      Object.keys(errors).forEach(key => {
+        const messageError = errors[key];
+        const input = form.elements[key];
+        setError(input, messageError);
+      })
+    }
+    if (Object.keys(good).length) {
+      Object.keys(good).forEach(key => {
+        const messageGood = good[key];
+        const input = form.elements[key];
+        setGood(input, messageGood);
+      })
+    }
+  })
+})();
+
+(function() {
+  const form = document.forms.editPassword;
+
+  if(!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const errorMessages = document.querySelectorAll('.invalid-feedback');
+    for (let error of errorMessages) {
+      error.remove();
+    }
+
+    const userOldPassword = form.elements.oldPassword;
+    const userPassword = form.elements.password;
+    const userRepeatPassword = form.elements.repeatPassword;
+
+    let errors = {};
+
+    if (userOldPassword.hasAttribute('required')) if (userOldPassword.value.length === 0) errors.oldPassword = 'This field is required';
+
+    if (userPassword.hasAttribute('required')) if (userPassword.value.length === 0) errors.password = 'This field is required';
+
+    if (userPassword.value != userRepeatPassword.value) errors.repeatPassword = 'Password mismatch';
+    if (userRepeatPassword.hasAttribute('required')) if (userRepeatPassword.value.length === 0) errors.repeatPassword = 'This field is required';
+
+    if (Object.keys(errors).length) {
+      Object.keys(errors).forEach(key => {
+        const messageError = errors[key];
+        const input = form.elements[key];
+        setError(input, messageError);
+      })
+    }
+  })
+})();
+
+(function() {
+  const form = document.forms.editData;
+
+  if(!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const errorMessages = document.querySelectorAll('.invalid-feedback');
+    for (let error of errorMessages) {
+      error.remove();
+    }
+
+    const goodMessages = document.querySelectorAll('.valid-feedback');
+    for (let good of goodMessages) {
+      good.remove();
+    }
+
+    const userEmail = form.elements.email;
+    const userName = form.elements.name;
+    const userSurname = form.elements.surname;
+    const userLocation = form.elements.location;
+    const userAge = form.elements.age;
+
+    let errors = {};
+    let good = {};
+
+    if (userEmail.hasAttribute('required')) if (userEmail.value.length === 0) errors.email = 'This field is required';
+    else if (!isEmailCorrect(userEmail.value)) errors.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
+    else good.email = 'All right';
+
+    if (userName.hasAttribute('required')) if (userName.value.length === 0) errors.name = 'This field is required';
+    else if (userName.value.length < 2) errors.name = 'Name too short';
+    else good.name = 'All right';
+
+    if (userSurname.hasAttribute('required')) if (userSurname.value.length === 0) errors.surname = 'This field is required';
+    else if (userSurname.value.length < 2) errors.surname = 'Surname too short';
+    else good.surname = 'All right';
+
+    if (userLocation.hasAttribute('required')) if (userLocation.value.length === 0) errors.location = 'This field is required';
+    else good.location = 'All right';
+
+    if (userAge.hasAttribute('required')) if (userAge.value.length === 0) errors.age = 'This field is required';
+    else good.age = 'All right';
 
     if (Object.keys(errors).length) {
       Object.keys(errors).forEach(key => {

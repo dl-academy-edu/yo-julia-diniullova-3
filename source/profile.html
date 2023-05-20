@@ -67,11 +67,8 @@
         </section>
     </main>
     @@include('blocks/loader.html')
-    <div class="answerServer full hidden">
-      <p class="answerServer__text textError"></p>
-      <button class="answerServer__btn" type="button"></button>
-    </div>
-    <form name="editPassword" class="editPassword" novalidate>
+    @@include('blocks/answerServer.html')
+    <form name="editPassword" class="editPassword modal-js" novalidate>
       <div class="editPassword__overlay" data-close="editPassword"></div>
       <div class="editPassword__wrapper">
         <label for="oldPassword" class="editPassword__label">Old password<span class="label__star--red"> *</span></label>
@@ -84,7 +81,7 @@
       </div>
       <div class="editPassword__close" data-close="editPassword"></div>
     </form>
-    <form name="editData" class="editData" novalidate>
+    <form name="editData" class="editData modal-js" novalidate>
       <div class="editData__overlay" data-close="editData"></div>
       <div class="editData__wrapper">
         <div class="editData__wrapper--input">
