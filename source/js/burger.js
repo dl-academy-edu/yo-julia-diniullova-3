@@ -1,4 +1,4 @@
-const buttonMenu = document.querySelector('.burger__btn--js');
+const buttonMenu = document.querySelector('.burger-js');
 const menu = document.querySelector('.burger');
 const menuClose = menu.querySelector('.burger__btn--close');
 

@@ -10,10 +10,20 @@
   left: 0;
   bottom: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  padding-right: 20px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 20px;
+  }
 
   &__profile {
     display: none;
