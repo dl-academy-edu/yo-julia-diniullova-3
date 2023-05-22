@@ -1,6 +1,6 @@
 const btnReset = document.querySelector('.filter__btn--reset');
 
-const LIMIT = 5;
+let limit = 5;
 
 let loaderCount = 0;
 
@@ -114,14 +114,32 @@ function getData(params) {
 
   searchParams.set('filter', JSON.stringify(filter));
 
-  searchParams.set('limit', LIMIT);
+  if(params.show) {
+    limit = params.show;
+  }
+
+  searchParams.set('limit', limit);
 
   if(+params.page) {
-    searchParams.set('offset', (+params.page) * LIMIT);
+    searchParams.set('offset', (+params.page) * limit);
   }
 
   if(params.sort) {
     searchParams.set('sort', JSON.stringify([params.sort, 'ASC']));
+  }
+
+  if(params.views) {
+    let paramViews =  params.views.split("-");
+    searchParams.set('filter', JSON.stringify({"views": {"$between": [paramViews[0], paramViews[1]]}}));
+  }
+
+  if(params.comments && params.comments.length) {
+    let paramComments = params.comments.length === 1 ? 0 : params.comments.split("-");
+    if (paramComments === 0) {
+      searchParams.set('filter', JSON.stringify({"commentsCount": 0}));
+    } else {
+      searchParams.set('filter', JSON.stringify({"commentsCount": {"$between": [paramComments[0], paramComments[1]]}}));
+    }
   }
 
   xhr.open('GET', BASE_SERVER + '/api/posts?' + searchParams.toString());
@@ -147,7 +165,7 @@ function getData(params) {
     })
     result.innerHTML = dataPosts;
     hideLoader();
-    const pageCount = Math.ceil(response.count / LIMIT);
+    const pageCount = Math.ceil(response.count / limit);
     for(let i = 0; i < pageCount; i++) {
       const link = linkElementCreate(i);
       links.insertAdjacentElement('beforeend', link);
