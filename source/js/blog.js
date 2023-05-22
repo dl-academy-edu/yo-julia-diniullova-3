@@ -1,4 +1,3 @@
-const loader = document.querySelector('.loader');
 const btnReset = document.querySelector('.filter__btn--reset');
 
 const LIMIT = 5;

@@ -1,6 +1,8 @@
 (function initLogin() {
   const loginForm = document.forms.signIn;
-  const loader = document.querySelector('.loader_js');
+  const answerServer = document.querySelector('.answerServer');
+  const btnFormAnswer = answerServer.querySelector('.answerServer__btn');
+  const textAnswer = answerServer.querySelector('.answerServer__text');
 
   rerenderLinks();
 

@@ -22,7 +22,6 @@ btnDelete.addEventListener('click', () => {
       }
   })
   .catch(err => {
-    console.log(localStorage.getItem('token'));
     console.error(err);
   })
   .finally(() => {

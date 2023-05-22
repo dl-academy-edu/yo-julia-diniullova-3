@@ -53,7 +53,7 @@
         setTimeout(() => {
           answerServer.classList.add('hidden');
         }, 2000)
-        renderProfile();
+        renderProfile(profile);
       } else {
         throw res;
       }
@@ -99,7 +99,7 @@
         setTimeout(() => {
           answerServer.classList.add('hidden');
         }, 2000)
-        renderProfile();
+        renderProfile(profile);
       } else {
         throw res;
       }
@@ -119,7 +119,7 @@
   }
 
   function renderProfile(profile) {
-    profileImg.style.backgroundImage = `url(${BASE_SERVER + profile.photoUrl})`;
+    profileImg.src = `${BASE_SERVER}${profile.photoUrl}`;
     profileName.innerText = profile.name;
     profileSurname.innerText = profile.surname;
     profileEmail.innerText = profile.email;

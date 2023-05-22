@@ -788,6 +788,10 @@
   width: 42px;
   z-index: 4;
 
+  @media (max-width: 767px) {
+    display: none;
+  }
+
   &:hover {
     opacity: 0.5;
   }
