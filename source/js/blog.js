@@ -1,7 +1,8 @@
 const btnReset = document.querySelector('.filter__btn--reset');
+const btnLeft = document.querySelector('.btnLeft--js');
+const btnRight = document.querySelector('.btnRight--js');
 
 let limit = 5;
-
 let loaderCount = 0;
 
 const showLoader = () => {
@@ -23,7 +24,7 @@ const hideLoader = () => {
         e.preventDefault();
 
         let data = {
-          page: 1,
+          page: 0,
         };
 
         data.name = form.elements.name.value;
@@ -57,6 +58,8 @@ const hideLoader = () => {
     }
 })();
 
+activePage();
+
 function getParamsFromLocation() {
   let searchParams = new URLSearchParams(location.search);
   return {
@@ -66,7 +69,7 @@ function getParamsFromLocation() {
     views: searchParams.get('views'),
     comments: searchParams.getAll('comments'),
     show: searchParams.get('show'),
-    page: +searchParams.get('page') || 1,
+    page: +searchParams.get('page'),
   }
 }
 
@@ -79,7 +82,7 @@ function setSearchParams(data) {
   if(data.page) {
     searchParams.set('page', data.page);
   } else {
-    searchParams.set('page', 1);
+    searchParams.set('page', 0);
   }
   if(data.sort) {
     searchParams.set('sort', data.sort);
@@ -170,16 +173,25 @@ function getData(params) {
       const link = linkElementCreate(i);
       links.insertAdjacentElement('beforeend', link);
     }
+
+    if (params.page === 0) {
+      btnLeft.setAttribute('disabled', 'disabled');
+    } else {
+      btnLeft.removeAttribute('disabled');
+    }
+
+    if (params.page === pageCount - 1) {
+      btnRight.setAttribute('disabled', 'disabled');
+    } else {
+      btnRight.removeAttribute('disabled');
+    }
   }
 }
 
 function linkElementCreate(page) {
-  const btnLeft = document.querySelector('.btnLeft--js');
-  const btnRight = document.querySelector('.btnRight--js');
   const link = document.createElement('a');
-  page++;
-  link.href = '?page=' + page;
-  link.innerText = (page);
+  link.href = '?page=' + Number(page + 1);
+  link.innerText = (page + 1);
   link.classList.add('sliderPosts__link');
 
   let params = getParamsFromLocation();
@@ -199,31 +211,27 @@ function linkElementCreate(page) {
     getData(getParamsFromLocation());
   });
 
+  return link;
+}
+
+function activePage() {
   btnLeft.addEventListener('click', () => {
-    page--;
-    const links = document.querySelectorAll('.sliderPosts__link');
-    let searchParams = new URLSearchParams(location.search);
     let params = getParamsFromLocation();
-    links[params.page].classList.remove('sliderPosts__link--active');
+    page = Number(params.page - 1);
+    let searchParams = new URLSearchParams(location.search);
     searchParams.set('page', page);
-    links[page].classList.add('active');
     history.replaceState(null, document.title, '?' + searchParams.toString());
     getData(getParamsFromLocation());
   });
 
   btnRight.addEventListener('click', () => {
-    page++;
-    const links = document.querySelectorAll('.sliderPosts__link');
-    let searchParams = new URLSearchParams(location.search);
     let params = getParamsFromLocation();
-    links[params.page].classList.remove('sliderPosts__link--active');
+    page = Number(params.page + 1);
+    let searchParams = new URLSearchParams(location.search);
     searchParams.set('page', page);
-    links[page].classList.add('active');
     history.replaceState(null, document.title, '?' + searchParams.toString());
     getData(getParamsFromLocation());
   });
-
-  return link;
 }
 
 function cardCreate({title, text, src, tags, date, views, commentsCount}) {
