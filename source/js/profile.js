@@ -3,7 +3,7 @@
   const profileName = document.querySelector('.j-profile-name');
   const profileSurname = document.querySelector('.j-profile-surname');
   const profileEmail = document.querySelector('.j-profile-email');
-  const profilePassword = document.querySelector('.j-profile-password');
+  //const profilePassword = document.querySelector('.j-profile-password');
   const profileLocation = document.querySelector('.j-profile-location');
   const profileAge = document.querySelector('.j-profile-age');
   const btnLogOut = document.querySelector('.j-logout');
@@ -125,7 +125,7 @@
     profileEmail.innerText = profile.email;
     profileLocation.innerText = profile.location;
     profileAge.innerText = profile.age;
-    profilePassword.innerText = profile.password;
+    //profilePassword.innerText = profile.password;
   }
 
   function getProfile() {
