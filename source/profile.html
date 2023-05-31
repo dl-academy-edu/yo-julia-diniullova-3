@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>My profile</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script>
+      var docElement = document.documentElement;
+      docElement.className = docElement.className.replace(/\bno-js\b/, '') + ' js';
+    </script>
+
+    <!-- Favicon -->
+
+    <!-- build:css -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body>
+    @@include('blocks/header.html')
+    <main class="main">
+      <section class="profile container">
+        <h1 class="profile__title">My profile</h1>
+        @@include('blocks/burger.html', {
+          "margin": "burgerOpenProfile"
+        })
+        <div class="profile__wrapper">
+          <div class="profile__img">
+            <img class="profile__photo j-profile-img" src="/img/images375" alt="my foto">
+          </div>
+          <div class="profile__info">
+            <div class="profile__text">
+              <strong class="profile__strong">Name:</strong>
+              <span class="j-profile-name"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Surname:</strong>
+              <span class="j-profile-surname"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Email:</strong>
+              <span class="j-profile-email"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Password:</strong>
+              <span class="profile-password">**********</span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Location:</strong>
+              <span class="j-profile-location"></span>
+            </div>
+            <div class="profile__text">
+              <strong class="profile__strong">Age:</strong>
+              <span class="j-profile-age"></span>
+            </div>
+            <button class="profile__btn j-editing-button">Change password</button>
+            <button class="profile__btn j-editing-data">Change other data</button>
+            <button class="profile__btn j-logout">Log out</button>
+            <button class="profile__btn j-delete">Delete account</button>
+          </div>
+        </div>
+        </section>
+    </main>
+    @@include('blocks/loader.html')
+    @@include('blocks/answerServer.html')
+    <form name="editPassword" class="editPassword modal-js" novalidate>
+      <div class="editPassword__overlay" data-close="editPassword"></div>
+      <div class="editPassword__wrapper">
+        <label for="oldPassword" class="editPassword__label">Old password<span class="label__star--red"> *</span></label>
+        <input name="oldPassword" type="password" id="oldPassword" class="editPassword__input" required>
+        <label for="newPassword" class="editPassword__label">New password<span class="label__star--red"> *</span></label>
+        <input name="password" type="password" id="newPassword" class="editPassword__input" required>
+        <label for="repeatPassword" class="editPassword__label">Repeat new password<span class="label__star--red"> *</span></label>
+        <input name="repeatPassword" type="password" id="repeatPassword" class="editPassword__input" required>
+        <button type="submit" class="editPassword__btn">Change password</button>
+      </div>
+      <div class="editPassword__close" data-close="editPassword"></div>
+    </form>
+    <form name="editData" class="editData modal-js" novalidate>
+      <div class="editData__overlay" data-close="editData"></div>
+      <div class="editData__wrapper">
+        <div class="editData__wrapper--input">
+          <label for="oldPassword" class="editData__label">Email</label>
+          <input name="email" type="email" id="email" class="editData__input editData__input--email" required>
+        </div>
+        <div class="editData__wrapper--inputs">
+          <div class="editData__wrapper--input">
+            <label for="name" class="editData__label">Name</label>
+            <input name="name" type="text" id="name" class="editData__input" required>
+          </div>
+          <div class="editData__wrapper--input">
+            <label for="repeatPassword" class="editData__label">Surname</label>
+            <input name="surname" type="text" id="surname" class="editData__input" required>
+          </div>
+        </div>
+        <div class="editData__wrapper--inputs">
+          <div class="editData__wrapper--input">
+            <label for="location" class="editData__label">Location</label>
+            <input name="location" type="text" id="location" class="editData__input" required>
+          </div>
+          <div class="editData__wrapper--input">
+            <label for="age" class="editData__label">Age</label>
+            <input name="age" type="text" id="age" class="editData__input" required>
+          </div>
+        </div>
+        <div class="editData__wrapper--input">
+          <label class="editData__label">Profile picture</label>
+          <label for="avatar" class="editData__label--img"></label>
+          <input name="avatar" type="file" id="avatar" class="editData__input editData__input--picture" required>
+        </div>
+        <button type="submit" class="editData__btn">Submit changes</button>
+      </div>
+      <div class="editData__close" data-close="editData"></div>
+    </form>
+    <script src="js/form.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/profile_delete.js"></script>
+  </body>
+</html>

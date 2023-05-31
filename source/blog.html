@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="google" content="notranslate">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>My blog</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script>
+      var docElement = document.documentElement;
+      docElement.className = docElement.className.replace(/\bno-js\b/, '') + ' js';
+    </script>
+
+    <!-- Favicon -->
+
+    <!-- build:css -->
+    <link href="css/style.min.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body>
+    @@include('blocks/header.html')
+    <main class="main">
+      <section class="blog container">
+        <h1 class="blog__title">My blog</h1>
+        @@include('blocks/burger.html', {
+          "margin": "burgerOpenBlog"
+        })
+        <form class="filter" name="filter">
+          <div class="filter__wrapper filter__wrapper--one">
+            <fieldset class="filter__fieldset position">
+              <legend class="filter__legend">Tags</legend>
+              <div class="filter__tags"></div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Views</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="views" value="100-500" type="radio" id="500">
+                <label class="filter__label" for="500">100-500</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="views" type="radio" value="500-1000" id="1000">
+                <label class="filter__label" for="1000">500-1000</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="views" type="radio" value="1000-2000" id="2000">
+                <label class="filter__label" for="2000">1000-2000</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Comments</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" name="comments" value="0" id="0">
+                <label class="filter__label" for="0">0</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" name="comments" value="0-1" id="1">
+                <label class="filter__label" for="1">0-1</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--checkbox" type="checkbox" name="comments" value="1-50" id="50">
+                <label class="filter__label" for="50">1-50</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset filter__show">
+              <legend class="filter__legend">How show?</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="show" type="radio" value="5" id="5">
+                <label class="filter__label" for="5">show 5</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="show" type="radio" value="10" id="10">
+                <label class="filter__label" for="10">show 10</label>
+              </div>
+            </fieldset>
+            <fieldset class="filter__fieldset">
+              <legend class="filter__legend">Sort by</legend>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="date" id="date">
+                <label class="filter__label" for="date">date</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="title" id="title">
+                <label class="filter__label" for="title">title</label>
+              </div>
+              <div class="filter__wrapper--inputs">
+                <input class="filter__input filter__input--radio" name="sort" type="radio" value="views" id="sort_views">
+                <label class="filter__label" for="sort_views">views</label>
+              </div>
+            </fieldset>
+            <button type="button" class="filter__btn filter__btn--margin filter__btn--reset">Reset</button>
+          </div>
+          <div class="filter__wrapper filter__wrapper--two">
+            <input type="text" name="name" class="filter__input--search">
+            <button type="submit" class="filter__btn">Search</button>
+          </div>
+        </form>
+        <div class="posts"></div>
+        <div class="sliderPosts">
+          <button class="slider__btn--left btnLeft--js"></button>
+          <div class="sliderPosts__number"></div>
+          <button class="slider__btn--right btnRight--js"></button>
+        </div>
+        @@include('blocks/loader.html')
+      </section>
+    </main>
+    @@include('blocks/footer.html')
+    @@include('blocks/answerServer.html')
+    @@include('blocks/loader.html')
+    @@include('blocks/formSignIn.html')
+    @@include('blocks/formRegister.html')
+    @@include('blocks/formSend.html')
+    <script src="js/form.js"></script>
+    <script src="js/form_button.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/signIn.js"></script>
+    <script src="js/send.js"></script>
+  </body>
+</html>

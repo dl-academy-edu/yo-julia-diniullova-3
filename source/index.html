@@ -9,17 +9,20 @@
     <title>Portfolio</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <script>
       var docElement = document.documentElement;
       docElement.className = docElement.className.replace(/\bno-js\b/, '') + ' js';
     </script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <!-- Favicon -->
 
     <!-- build:css -->
     <link href="css/style.min.css" rel="stylesheet">
     <!-- endbuild -->
+
   </head>
   <body>
     @@include('blocks/header.html')
@@ -27,16 +30,47 @@
       <section class="developer container">
         <h1 class="developer__title">Yulia Rafailevna</h1>
         <p class="developer__subtitle">Future front-end developer 24 years old, Tolyatti</p>
-        <picture>
-          <img class="developer__img" src="" alt="Фото в пути..." width="1000px" height = "465px">
-        </picture>
-        <div class="developer__slider">
-          <button class="developer__btn--left"></button>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <span class="developer__span"></span>
-          <button class="developer__btn--right"></button>
+        @@include('blocks/burger.html', {
+          "margin": "burgerOpen"
+        })
+        <div class="slider">
+          <div class="slider__wrapper">
+            <div class="slider__inner-wrapper">
+              <div class="slider__slide">
+                <picture>
+                  <source srcset="./img/images375.jpg" media="(max-width: 768px)" width="280" height="465">
+                  <source srcset="./img/images768.jpg" media="(max-width: 1399px)" width="648" height="465">
+                  <img class="portfolio__img" src="./img/images.jpg" alt="my foto">
+                </picture>
+              </div>
+              <div class="slider__slide">
+                <picture>
+                  <source srcset="./img/images375.jpg" media="(max-width: 768px)" width="280" height="465">
+                  <source srcset="./img/images768.jpg" media="(max-width: 1399px)" width="648" height="465">
+                  <img class="portfolio__img" src="./img/images.jpg" alt="my foto">
+                </picture>
+              </div>
+              <div class="slider__slide">
+                <picture>
+                  <source srcset="./img/images375.jpg" media="(max-width: 768px)" width="280" height="465">
+                  <source srcset="./img/images768.jpg" media="(max-width: 1399px)" width="648" height="465">
+                  <img class="portfolio__img" src="./img/images.jpg" alt="my foto">
+                </picture>
+              </div>
+              <div class="slider__slide">
+                <picture>
+                  <source srcset="./img/images375.jpg" media="(max-width: 768px)" width="280" height="465">
+                  <source srcset="./img/images768.jpg" media="(max-width: 1399px)" width="648" height="465">
+                  <img class="portfolio__img" src="./img/images.jpg" alt="my foto">
+                </picture>
+              </div>
+            </div>
+          </div>
+          <div class="slider__bottom-panel">
+            <button class="slider__btn--left" aria-label="left arrow"></button>
+            <div class="slider__pagination"></div>
+            <button class="slider__btn--right" aria-label="right arrow"></button>
+          </div>
         </div>
       </section>
       <section class="aboutMe">
@@ -56,7 +90,7 @@
         <p class="skills__subtitle">I work in such programs as</p>
         <div class="skills__programs">
           <div class="skills__program">
-            <img class="skills__img" src="./img/html.png" alt="html" width="79px" height="90px">
+            <img class="skills__img" src="./img/html.png" alt="html" width="79" height="90">
             <p class="skills__text">HTML 5</p>
             <div class="skills__wrapper">
               <label class="skills__label" for="html">90%</label>
@@ -64,7 +98,7 @@
             </div>
           </div>
           <div class="skills__program">
-            <img class="skills__img" src="./img/css.png" alt="css" width="79px" height="90px">
+            <img class="skills__img" src="./img/css.png" alt="css" width="79" height="90">
             <p class="skills__text">CSS/SCSS</p>
             <div class="skills__wrapper">
               <label class="skills__label" for="css">90%</label>
@@ -72,7 +106,7 @@
             </div>
           </div>
           <div class="skills__program">
-            <img class="skills__img" src="./img/js.png" alt="js" width="68px" height="90px">
+            <img class="skills__img" src="./img/js.png" alt="js" width="68" height="90">
             <p class="skills__text">JavaScript</p>
             <div class="skills__wrapper">
               <label class="skills__label" for="js">35%</label>
@@ -80,7 +114,7 @@
             </div>
           </div>
           <div class="skills__program">
-            <img class="skills__img" src="./img/git.png" alt="git" width="90px" height="90px">
+            <img class="skills__img" src="./img/git.png" alt="git" width="90" height="90">
             <p class="skills__text">Git/GitHub</p>
             <div class="skills__wrapper">
               <label class="skills__label" for="git">80%</label>
@@ -88,11 +122,11 @@
             </div>
           </div>
           <div class="skills__program">
-            <img class="skills__img" src="./img/figma.png" alt="figma" width="60px" height="90px">
+            <img class="skills__img" src="./img/figma.png" alt="figma" width="60" height="90">
             <p class="skills__text">Figma</p>
             <div class="skills__wrapper">
-              <label class="skills__label" for="css">90%</label>
-              <progress class="skills__progress" id="css" max="100" value="90"></progress>
+              <label class="skills__label" for="figma">90%</label>
+              <progress class="skills__progress" id="figma" max="100" value="90"></progress>
             </div>
           </div>
         </div>
@@ -100,10 +134,32 @@
       <section class="portfolio">
         <h1 class="portfolio__title">Portfolio</h1>
         <div class="portfolio__wrapper container">
-          <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
-          <div class="portfolio__btn">
-            <button class="portfolio__btn--left"></button>
-            <button class="portfolio__btn--right"></button>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="./img/portfolio-375.png" media="(max-width: 768px)">
+                  <source srcset="./img/portfolio-768.png" media="(max-width: 1399px)">
+                  <img class="portfolio__img" src="./img/portfolio.png" alt="portfolio">
+                </picture>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
           <div class="portfolio__fon">
             <p class="portfolio__site">Learning site for DL Academy courses</p>
@@ -113,96 +169,21 @@
       </section>
     </main>
     @@include('blocks/footer.html')
-    <form name="signIn" class="signIn">
-      <div class="signIn__overlay"></div>
-      <div class="signIn__wrapper">
-        <label for="email" class="signIn__label">Email<span class="label__star--red"> *</span></label>
-        <input type="email" id="email" class="signIn__input">
-        <label for="password" class="signIn__label">Password<span class="label__star--red"> *</span></label>
-        <input type="password" id="password" class="signIn__input">
-        <a href="#" class="signIn__btn">Log in</a>
-      </div>
-      <div class="signIn__close"></div>
-    </form>
-    <form name="register" class="register">
-      <div class="register__overlay"></div>
-      <div class="register__wrapper">
-        <label for="email" class="register__label">Email<span class="label__star--red"> *</span></label>
-        <input type="email" id="email" class="register__input register__input--width">
-        <div class="register__wrapper--inputs">
-          <div class="register__wrapper--input">
-            <label for="name" class="register__label">Name<span class="label__star--red"> *</span></label>
-            <input type="text" id="name" class="register__input">
-          </div>
-          <div class="register__wrapper--input">
-            <label for="surname" class="register__label">Surname<span class="label__star--red"> *</span></label>
-            <input type="text" id="surname" class="register__input">
-          </div>
-        </div>
-        <div class="register__wrapper--inputs">
-          <div class="register__wrapper--input">
-            <label for="password" class="register__label">Password<span class="label__star--red"> *</span></label>
-            <input type="password" id="password" class="register__input">
-          </div>
-          <div class="register__wrapper--input">
-            <label for="password" class="register__label">Repeat password<span class="label__star--red"> *</span></label>
-            <input type="password" id="password" class="register__input">
-          </div>
-        </div>
-        <div class="register__wrapper--inputs">
-          <div class="register__wrapper--input">
-            <label for="location" class="register__label">Location<span class="label__star--red"> *</span></label>
-            <input type="text" id="location" class="register__input">
-          </div>
-          <div class="register__wrapper--input">
-            <label for="number" class="register__label">Age<span class="label__star--red"> *</span></label>
-            <input type="number" id="number" class="register__input">
-          </div>
-        </div>
-        <div class="register__wrapper--checkbox">
-          <input type="checkbox" id="checkbox" class="register__checkbox">
-          <label for="checkbox" class="register__label">Clicking on the button, you consent to the processing of your personal data.</label>
-        </div>
-        <a href="#" class="register__btn">Sign up</a>
-      </div>
-      <div class="register__close"></div>
-    </form>
-    <form name="send" class="send">
-      <div class="send__overlay"></div>
-      <div class="send__wrapper">
-        <div class="send__wrapper--inputs">
-          <div class="send__wrapper--input">
-            <label for="name" class="send__label">What is your name?<span class="label__star--red"> *</span></label>
-            <input type="text" id="name" class="send__input">
-          </div>
-          <div class="send__wrapper--input">
-            <label for="message" class="send__label">Message subject<span class="label__star--red"> *</span></label>
-            <input type="text" id="message" class="send__input">
-          </div>
-        </div>
-        <div class="send__wrapper--inputs">
-          <div class="send__wrapper--input">
-            <label for="email" class="send__label">Your Email<span class="label__star--red"> *</span></label>
-            <input type="email" id="email" class="send__input">
-          </div>
-          <div class="send__wrapper--input">
-            <label for="phone" class="send__label">Your mobile phone<span class="label__star--red"> *</span></label>
-            <input type="number" id="phone" class="send__input">
-          </div>
-        </div>
-        <div class="send__wrapper--area">
-          <label for="textarea" class="send__label">What do you want to discuss with me?</label>
-          <textarea id="textarea" class="send__textarea"></textarea>
-        </div>
-        <div class="send__wrapper--checkbox">
-          <input type="checkbox" id="checkbox" class="send__checkbox">
-          <label for="checkbox" class="send__label">Clicking on the button, you consent to the processing of your personal data.</label>
-        </div>
-        <a href="#" class="send__btn">Send</a>
-      </div>
-      <div class="send__close"></div>
-    </form>
+    @@include('blocks/answerServer.html')
+    @@include('blocks/loader.html')
+    @@include('blocks/formSignIn.html')
+    @@include('blocks/formRegister.html')
+    @@include('blocks/formSend.html')
     <button class="buttonToTop buttonToTop__scroll--hidden"></button>
     <script src="js/form.js"></script>
+    <script src="js/form_button.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/buttonToTop.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/send.js"></script>
+    <script src="js/signIn.js"></script>
   </body>
 </html>

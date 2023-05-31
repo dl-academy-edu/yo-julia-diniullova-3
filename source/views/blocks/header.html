@@ -1,15 +1,18 @@
 <header class="header container">
-  <button href="#" class="header__btn--fatty">Home</button>
+  <a href="index.html" class="header__btn--fatty">Home</a>
   <nav class="header__nav">
     <ul class="header__list undotted">
       <li class="header__item">
-        <button class="header__btn">My blog</button>
+        <a href="blog.html" class="header__btn">My blog</a>
       </li>
-      <li class="header__item">
-        <button class="header__btn header__signIn">Sign in</button>
+      <li class="header__item login-button">
+        <button class="header__btn header__signIn" data-modal="signIn">Sign in</button>
       </li>
-      <li class="header__item">
-        <button class="header__btn header__register">Register</button>
+      <li class="header__item register-button">
+        <button class="header__btn header__register" data-modal="register">Register</button>
+      </li>
+      <li class="header__item to-profile hidden">
+        <a class="header__btn header__profile" href="profile.html" data-modal="profile">My profile</a>
       </li>
     </ul>
   </nav>
